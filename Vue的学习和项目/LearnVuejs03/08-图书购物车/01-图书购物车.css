@@ -1,0 +1,18 @@
+table{
+  border-collapse: collapse;
+}
+
+th{
+  background-color: lightgrey;
+  text-align:center;
+  padding:10px 20px;
+  border: black 1px solid;
+}
+td{
+  padding: 10px 5px;
+  border: black 1px solid;
+  text-align: center;
+}
+.del{
+  text-align: left;
+}

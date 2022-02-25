@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .link{
+      background: yellow;
+    }
+  </style>
+</head>
+
+<!-- 第四个demo的主要思想 : 理清楚里边的数据传递，和执行某个事件后，数据的变化  ？
+如果不太确定是否有某个遍历后的东东，先写几个东西出来，找规律 -->
+
+<body>
+  
+  
+  <div id="app">
+    <h2>{{message}}</h2>
+    <ul @click="ulclick">
+      ulclick
+      <!-- 快捷键 ul>li -->
+
+      <!-- v-for="变量名 in 列表" -->
+      <li v-for="(item,index) in movies" @click.stop="clickChangeColor(index)"
+        v-bind:class="{link:currentIndex===index,line:true}"> 
+        {{index+1}}-{{item}}
+      </li>
+    </ul>
+  </div>
+
+  <script src="../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        message:'中午好',
+        movies: ['进击的巨人','塑壳和贝塔','海王','火影忍者'],
+        isLink:false,
+
+        // 通常需要改变一个状态，需要对应的记录当前的改变，主要是通过 -- 数据绑定来操作数据的匹配
+        // 而通过一个事件来改变 那个数据 ，以此将 那个数据独立出来（与其他的数据区分开来）
+        currentIndex: 0
+      },
+      methods: {
+        clickChangeColor(index){
+          this.currentIndex = index;
+        },
+        ulclick(){
+          return console.log('ulclick事件被触发');
+          
+        }
+      }
+    })
+  
+  </script>
+
+</body>
+</html>

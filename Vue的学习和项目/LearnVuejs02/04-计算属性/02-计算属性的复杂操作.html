@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 第二个demo的主要思想 ：计算属性类似于methods的使用，但是也是有区别的，且看下回分晓 -->
+
+<body>
+  <!-- 快捷键：Ctrl shift K --删除单行 -->
+  <div id="app">
+    <h2>{{message}},这些书的总价是：{{sumPrice}}</h2>
+  </div>
+
+  <script src="../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        message:'中午好',
+        books: [
+          {id:01,name:'JavaScript高级指南',price:98},
+          {id:02,name:'Unix编程艺术',price:58},
+          {id:03,name:'深入理解计算机原理',price:68},
+          {id:04,name:'现代操作系统',price:38},
+        ]
+      },
+      computed:{
+        sumPrice:function(){
+          let sum = 0;
+          for( let i = 0; i < this.books.length; i++){
+            
+            sum += this.books[i].price
+          }
+          return sum
+        }
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+</html>

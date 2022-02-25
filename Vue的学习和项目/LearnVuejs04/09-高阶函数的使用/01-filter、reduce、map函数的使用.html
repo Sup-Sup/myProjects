@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <h2>{{message}}</h2>
+  </div>
+  
+  <script src='vue .js'></script> 
+  <script>
+
+    // 需求1：将数组中小于100的取出来
+    // 数组.filter(function(){}) -- 会生成（返回一个数组）
+    // 1,filter函数的使用，filter函数的回调函数有一个要求必须返回一个布尔值
+    // true ：当返回true时，函数内部会自动将这次回调的n添加到新的数组中去
+    // false：当返回false时，函数内部会过滤掉这次的n
+    let num = [12,113,12165,55,6,91,35];
+    
+    
+    let newNums = num.filter(function(n){
+      return n<100
+    });
+    newNums = newNums.sort();
+
+  
+    console.log(newNums);
+
+    // 需求2：将数组中的每个元素乘以2
+    // 数组.map(function(){})  -- 会生成（返回一个数组）
+    // map函数的使用，回调函数
+    let new2Nums = newNums.map(function(n){
+      return n*2
+    })
+    console.log(new2Nums);
+    // 24 70 110 12 182
+    
+    // 3.reduce函数的使用
+    // reduce的作用 -- 对数组中的所有内容进行汇总
+    let total =new2Nums.reduce(function(preValue,n){
+      return preValue + n;
+    },0);
+    console.log(total);
+    // 第一次 preValue -- 0   n -- 24
+    // 第二次 preValue -- 24  n -- 70
+    // 第三次 preValue -- 94  n -- 110
+    // 第四次 preValue -- 204 n -- 12
+    // 第五次 preValue -- 216 n -- 182
+    //  total 398
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+        
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

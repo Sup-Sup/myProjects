@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组对象中的一些方法</title>
+  <script>
+
+    // 检测是否为数组：
+    var arr = [];
+    console.log(arr instanceof Array); 
+    // object instanceof constructor  某个实例对象 instanceof 某个构造函数 结果是 true
+    console.log(Array.isArray(arr));    //  Array.isArray(object) 
+    // x.push(xx) 在后边加入若各个元素
+    var arr = [1, 2, 3];
+    console.log(arr.push(5, 'hi'));  // 5
+    console.log(arr);  // [1, 2, 3, 5,'hi']
+    // x.unshift(xx)  在前边加入若干个元素
+    console.log(arr.unshift('good', 5, 'hello~'));
+    console.log(arr);
+    // x.pop() 删除最后一个元素
+    console.log(arr.pop());  // 返回被删除的最后那个元素hi
+    console.log(arr);
+    // x.shift() 删除第一个元素
+    console.log(arr.shift());  // 返回被删除的第一个元素good
+    console.log(arr);
+
+    // x.reserve() 翻转数组
+    console.log(arr.reverse());
+
+    // x.sort() 冒泡排序  注意结果，要对sort()内部进行处理
+    var arr1 = [1,11,2,5,33,44,99,10,11];
+    console.log(arr1.sort());  // 注意结果  [1, 10, 11, 2, 33, 44, 5, 99]
+    console.log(arr1.sort(
+      function (a, b) {
+        // return a - b   升序冒泡排序
+        return b - a  // 降序冒泡排序
+      }
+    ));
+
+    // //indexOf('元素')  返回该元素的索引号
+    // var arr2 = ['red','blue','green','yellow'];
+    // var arr3 = [1,11,33,5,33,44,99,10,11];
+    // console.log(arr2.indexOf('green'));  // 2 
+    // console.log(arr2.indexOf('purple'));  //找不到这个元素返回 -1
+    // console.log(arr3.indexOf(33));  //若数组中有相同的元素，返回按从前向后顺序找到的第一个元素的序号   2
+    // console.log(arr2.lastIndexOf('green')); //返回按从后向前顺序找到的元素的序号  2
+    // console.log(arr3.lastIndexOf(33));  //若数组中有相同的元素，返回按从后向前顺序找到的元素的序号   4
+    
+      // var newArr = unique
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

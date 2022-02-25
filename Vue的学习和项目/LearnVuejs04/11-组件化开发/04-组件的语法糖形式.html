@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+   <cpn1></cpn1>
+    <cpn2></cpn2>
+  </div>
+  
+  <script src='vue .js'></script> 
+  <script>
+
+    // 1.全局组件的语法糖形式(省略了Vue.extend(),换成一个对象) 
+    // const cpn1 = Vue.component({template:`<div> <h1></h1> </div>`})：
+    Vue.component('cpn1',{
+      template:`
+        <div>
+          <h1>hello</h1>
+          <p>下午好哇，学习还顺利不</p>
+          <p>顺利的</p>
+        </div>`
+    })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      components: {
+        // 局部组件的语法糖形式
+        cpn2:{
+          template:`
+            <div>
+              <h1>你好哇</h1>
+              <p>下午好哇，学习还顺利不</p>
+              <p>顺利的</p>
+            </div>`
+        }
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

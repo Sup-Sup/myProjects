@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简易计算器</title>
+</head>
+<script src="./calculate.js"></script>
+<script>
+
+    var num = prompt('欢迎使用简易计算器：\n1.加法运算：\n2.减法运算：\n3.乘法运算：\n4.除法运算：\n5.退出：\n请输入您的选项');
+    num = parseInt(num);
+  switch(num){
+    case 1: 
+      var num1 = prompt('请输入第一个数字:');
+      var num2 = prompt('请输入第二个数字:');
+      var res = add(parseFloat(num1), parseFloat(num2));
+      alert(num1 + '+'+ num2 + '=' + res );
+      break;
+    case 2:
+      var num1 = prompt('请输入第一个数字:');
+      var num2 = prompt('请输入第二个数字:');
+      var res = sub(parseFloat(num1), parseFloat(num2));
+      alert(num1 + '-'+ num2 + '=' + res );
+      break;
+    case 3:
+      var num1 = prompt('请输入第一个数字:');
+      var num2 = prompt('请输入第二个数字:');
+      var res = mul(parseFloat(num1), parseFloat(num2));
+      alert(num1 + 'x'+ num2 + '=' + res );
+      break;
+    case 4:
+      var num1 = prompt('请输入第一个数字:');
+      var num2 = prompt('请输入第二个数字:');
+      var res = div(parseFloat(num1), parseFloat(num2));
+      alert(num1 + '/'+ num2 + '=' + res );
+      break;
+    case 5:
+      alert('退出')
+      break;
+    default:
+      alert('您输入的选项有误，请重新输入')
+  }
+
+/*   // 用if else if  可将     
+    var num1 = prompt('请输入第一个数字:');
+    var num2 = prompt('请输入第二个数字:');
+    这两行的冗余减少一点
+ */
+</script>
+<body>
+  
+</body>
+</html>

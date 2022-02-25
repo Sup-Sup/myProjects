@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 第三个demo的主要思想 ： 用在哪？ 对比对象语法，有什么不同之处？ -->
+
+<body>
+
+  <div id="app">
+    <h2 class="title" :class="['active','line']">{{message}}</h2>
+  </div>
+
+  <script src="../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        message:'中午好'
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+</html>

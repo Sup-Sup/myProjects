@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 第五个demo的主要思想 : Vue解析v-bind 的对象语法时，有 '' 和没有 '' 的区别 -->
+
+<body>
+  
+  <div id="app">
+
+    <!-- style 后跟一个css属性名称 -- key(属性名):value（属性值 -- 可为data中的数据） 
+      下边的fontSize === font-size  -->
+    <!-- 注意点： 直接写font-size：50px 会发生编译错误 -- 原因是Vue将 50px 当成一个变量了，因此得加 ''
+    当然，如果本身我们在fontSize后放的是属性，那么将不会出错 -->
+    <h2 :style="{fontSize: '50px'}">{{message}}</h2>
+
+    <!--  可以用backgroundcolor来动态设置 背景颜色 -->
+    <h2 :style="{fontSize: finalSize+'px', backgroundcolor:finalColor}" >{{message}}</h2>
+  </div>
+
+  <script src="../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        message:'中午好',
+        finalSize: 100,
+        finalColor:'skyblue'
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+</html>

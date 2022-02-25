@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <h2>{{message}}</h2>
+
+    <!-- 在此处进行数据绑定，将父组件（vue实例）的数据传给子组件 
+    如果不用v-bind去绑定数据的话，那么cmovies="movies" 会将movies当做字符串来使用-->
+
+    <!-- 其实就是这里接收到了父组件传递的数据，而后在props中放置这个数据（以变量形式） -->
+    <mycpn v-bind:cmovies="movies" :cmessage="message"></mycpn>
+  </div>
+  
+  <!-- cpn模板 -->
+  <template id="cpn">
+    <div>
+      <h1>{{title}}</h1>
+      <h2 v-for='(item,index) in cmovies'>{{index}}-{{item}}</h2>
+      <h2>{{cmessage}}</h2>
+      
+    </div>
+  </template>
+
+  <script src='vue .js'></script> 
+  <script>
+
+  
+    // 注册组件
+    Vue.component('mycpn',{
+      template:'#cpn',
+      // props可以用数组形式，里边是变量
+      // props:['cmovies','cmessage'],
+      // props的其他类型
+      props:{
+        // 1.类型限制：要求你传进来的必须是相应的类型
+        // cmovies：Array 
+        // cmessage:String
+
+        // 2.提供一些默认值，以及必须传值
+        cmessage: {
+          type: String,
+          // 如果没有传值，cmessage 默认值是 aaaaaa
+          default: 'aaaaaa',
+          // 必须传值，不传值就报错
+          required: true
+        },
+        // 如果类型是 对象或者数组时，默认值必须是一个函数
+        cmovies:{
+          type: Array,
+          default(){
+            return []
+          }
+        }
+      },
+      data(){
+        return {
+          title:'我是题目'
+        }
+      },
+      methods: {
+
+      }
+    })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇',
+        movies:['海王','海贼王','火影忍者']
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

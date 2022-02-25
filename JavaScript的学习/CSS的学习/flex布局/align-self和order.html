@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    display: flex;
+    flex-flow: row wrap;
+    height: 400px;
+    width: 400px;
+    background-color: pink;
+  }
+  div span {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+  }
+  div span:nth-child(2) {
+    order: -1;
+  }
+  div span:nth-child(3) {
+    align-self:flex-end;
+  }
+</style>
+<body>
+  <div>
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+  </div>
+</body>
+</html>

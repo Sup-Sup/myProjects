@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <!-- <h2>{{message}}</h2> -->
+    <!-- 使用组件 -->
+    <!-- 使用驼峰命名时，得用下边的写法 -->
+    <cpn1 :c-info="info" :c-message="message"></cpn1>
+  </div>
+
+  <!-- 组件的template的分离 -->
+  <template id="cpn">
+    <div>
+      <ol>
+        <li  v-for="info in cInfo">
+          <h2>{{info}}</h2>
+        </li>  
+      </ol>
+      <h1>{{title}}</h1>
+      <h2>{{cMessage}}</h2>
+    </div>    
+  </template>
+  
+  <script src='./vue .js'></script> 
+  <script>
+
+    // 定义一个组件
+    const cpn1 = {
+      template: '#cpn',
+      data(){
+        return {
+          title: '我是标题'
+        }
+      },
+      // 存放父组件传递的数据
+      props: {
+        cInfo:{
+          type: Object,
+          default(){
+            return {}
+          }
+        },
+        cMessage:{
+            type:String,
+            default: 'wodiguaiguai',           
+        }      
+      }
+    }
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇',
+        info: {
+          name:'chaoqi',
+          age: 18 ,
+          height: 172
+        }
+      },
+      // 注册一个组件：
+      components:{
+        cpn1
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

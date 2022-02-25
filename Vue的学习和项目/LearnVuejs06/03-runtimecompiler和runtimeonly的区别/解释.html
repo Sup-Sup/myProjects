@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- 两个的区别主要是：vue程序的运行过程 ： 传入 解析 编译 渲染
+  template（HTML代码） ast render(函数) vdom 真实dom
+  
+  两者的main.js文件中
+  这是runtimeonly的   render（渲染）函数
+  render  vdom UI(真实dom)
+  
+            import Vue from 'vue'
+            import App from './App'  //引入的App.vue有template，是谁解析这个东西的呢？  vue-template-compiler解析的
+            // 所以引入的时候，App中的template都转成了render函数，开发时依赖。运行出来的项目所有组件都没有template
+                                    
+            Vue.config.productionTip = false
+
+            new Vue({
+            el: '#app',
+            render: h => h(App)
+          })
+          render: h => h(App)等价于
+
+          render (h){
+            return h(app)
+          }
+
+          实际上createElement函数就是 h 
+           render:function(createElement){
+                  // 1.普通用法：createElement('标签',{标签属性},['内容'])
+                      //   return createElement('h2',
+                      //   {class:"box"},
+                      //   ['今天有点凉喔',
+                      //   createElement('button',['按钮'])])
+                  //2.传入组件对象 
+                    return createElement(App);
+          }
+
+
+  这是runtimecompiler中的
+    过程：template（HTML代码） ast render vdom 真实dom（UI）
+          import Vue from 'vue'
+          import App from './App'
+          Vue.config.productionTip = false
+
+          new Vue({
+          el: '#app',
+          components: { App },
+          template: '<App/>'
+        })
+  这里是先导入，注册，使用（替换）
+
+
+
+
+  两者过程比较：
+  这是runtimeonly的 ： render  vdom UI(真实dom)
+  这是runtimecompiler的 ： template（HTML代码） ast render vdom 真实dom（UI）
+  结论 ：runtimeonly（1、性能更高 2、代码量更少 ）
+
+-->
+
+</body>
+
+</html>

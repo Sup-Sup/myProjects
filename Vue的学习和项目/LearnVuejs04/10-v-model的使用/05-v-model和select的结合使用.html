@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+
+    <!-- 1.选择一个  布尔型 -->
+    <select name="movie" id='movie' v-model="movie">
+      <option value="那些年，我们一起追过的女孩">那些年，我们一起追过的女孩</option>
+      <option value="无问西东">无问西东</option>
+      <option value="侠岚">侠岚</option>
+      <option value="同桌的你">同桌的你</option>
+    </select>
+    <h2>您喜欢的电影有：{{movie}}</h2>
+
+    <!-- 2.选择多个  数组 -->
+    <select name="movies" id="movies" v-model="movies" multiple>
+      <option value="那些年，我们一起追过的女">那些年，我们一起追过的女孩</option>
+      <option value="无问西东" > 无问西东</option>
+      <option value="侠岚" >侠岚</option>
+      <option value="同桌的你">同桌的你</option>
+      
+    </select>
+    <h2>您喜欢的电影有：{{movies}} -- 按下Ctrl键才能来做多个选择</h2>
+
+  </div>
+  
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇',
+        movie:'无问西东',
+        movies:[]
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

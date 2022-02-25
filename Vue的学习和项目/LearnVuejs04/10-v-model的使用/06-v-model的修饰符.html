@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+<!--  lazy  trim  number -->
+
+<body>
+  
+  <div id='app'>
+
+    <!-- 1.v-model修饰符：lazy -- 本来v-model默认在input事件中是同步输入框的数据的，
+    lazy修饰符在敲击回车时，或者失去焦点时，才会更新 -->
+    <input type="text" name="" id="" v-model.lazy="message">
+    <h2>{{message}}</h2>
+
+    <!-- 2.修饰符：number v-model在默认情况下，会将input里边的都转化为string类型，
+    但是数字的，我们还是希望它是数字的类型 -->
+    <input type="number" name="" id="" v-model.number="year">
+    <h1>{{year}} - {{typeof year}}</h1>
+
+    <!-- 3.修饰符：trim 如果输入的内容有很多的空格，通常我们希望把他们删除
+    trim修饰符可以过滤内容左右两边的空格 -->
+    <input type="text" name="" id="" v-model.trim="message">
+    <h1> ---- {{message}}</h1>
+
+  </div>
+  
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇',
+        year: 2020,
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

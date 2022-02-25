@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 第一个demo的主要思想 ：给元素id--挂载管理这个元素--定义该变量
+思考一个小问题：挂载和不挂载变量后，具体的效果会是怎样的？？
+-->
+<body>
+
+    <div id="app">{{message}}</div> 
+    <!-- 将变量message渲染出来 -->
+    <div>{{message}}</div>
+    <!-- 这一行代码可用来对比前一行代码，未被管理，不显示（解释器没找到） -->
+
+    <script src="../vue .js"></script>
+    <!--引用了Vue.js的文件 -->
+    <script>
+        // 创建Vue对象，Vue对象内可以传参{}--对象类型
+        //{}-包含el属性：决定了这个Vue对象挂载到哪一个元素上（此例中的id--app）
+        //{}-包含了data属性：该属性通常会存储一些数据，自己定义的/服务器请求来的（网络）
+        const app = new Vue({
+            el:'#app', 
+            //  用于挂载要管理的元素（此例中的div-id-app ，通俗一点就是将元素交给
+            //这个Vue管理了
+            // 因为该div被管理了，所以div中的代码会被解析执行，）
+            data:{ //定义一些数据
+                message:"你好哇，李银河！"
+                
+            }
+
+        })  
+    </script>
+</body>
+</html>

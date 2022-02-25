@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+  // 对象的字面量就是下方的 {} 
+  //const obj = {} ;
+  
+  //  第一个 ：属性的增强写法
+  const name = 'chaoqi' ;
+  const age = 22 ;
+  const height = 1.72;
+  
+  // 下方的是 ES5 的写法
+  // const obj = {
+  //   name: name,
+  //   age: age,
+  //   height: height
+  // }
+  // console.log(obj)
+
+  // ES6 的写法 -- 更加简便 ，多使用这个
+  const obj = {
+    name,
+    age,
+    height
+  }
+  console.log(obj);
+
+  // 第二个 ；函数的增强写法
+  
+  // ES5 的写法
+  // const obj1 = {
+  //   break: function(){
+  //     console.log('休息一下');    
+  //   }
+  // }
+  // obj1.break();
+
+  // ES6 的写法 -- 更方便些
+  const obj2 = {
+    break(){
+      console.log('休息一下下');
+      
+    }
+  }
+  obj2.break();
+
+  </script>
+ 
+  
+  
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <h2>{{message}}</h2>
+    <ul>
+      <li v-for="item in letters">{{item}}</li>
+    </ul>
+    <button @click="btnclick">按钮</button>
+  </div>
+  
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇',
+        letters: ['a','b','c','d']
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+        btnclick(){
+          
+          // 1.push方法：在最后添加元素
+          // return this.letters.push('aaa','bbb','cc')
+          // 2.unshift方法：在最前添加元素
+          // return this.letters.unshift('aaa','fewf')
+          // 3.shift方法：删除最前一个元素
+          // return this.letters.shift();
+          // 4.pop方法：删除最后一个元素
+          // return this.letters.pop();
+          // 5.splice方法：splice(m,n,...) -- 可删除元素/插入元素/替换元素
+          // 第一个参数是从下标为m处开始，第二个元素是删除几个元素，第三个可以选择（从m处开始，
+          // 加到数组后边,原先m处的元素后移）
+          //return this.letters.splice(1,2) -- 删除元素
+          // return this.letters.splice(1,0,'i','j') -- 插入元素
+          //  return this.letters.splice(1,2,'l','m','n') -- 替换元素
+          // 6.sort方法：排序
+          // return this.letters.sort();
+          // 7.reverse方法：反向排序
+          // return this.letters.reverse();
+
+          // 通过Vue的set方法也可响应式的改变数组的元素 
+          // -- set(要修改的对象，索引值，修改后的值) 
+          // 若要改变数组中的值的时候，推荐使用 splice方法
+          // Vue.set(this.letters,0,'被修改的值')
+          
+          // 注意：下面这种方式通过索引值来改变数组元素 -- 不是响应式的 
+          // 即数组被改变了 -- 但是视图层看不到动态改变
+          // return this.letters[0] = 'h';
+        }
+
+        // ...num是可变参数
+        // sum(...num){
+        //   return num1+num2+num3
+        // }
+      }
+    })     
+   
+  </script> 
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 组件：可复用 -- 可以重复使用 -->
+
+<body>
+
+  
+  
+  <div id='app'>
+    
+    <!-- 3.组件的使用 -- 组件必须挂载在某个vue实例下，否则会失效-->
+    <my-cpn></my-cpn>    
+    <my-cpn></my-cpn>    
+    <my-cpn></my-cpn>    
+
+    <!-- 下面使用是，可以给组件设置布局 -->
+    <div>
+      <div>
+        <my-cpn></my-cpn>
+      </div>
+    </div>
+  </div>
+  
+  <script src='vue .js'></script> 
+  <script>
+
+    // 1.创建组件构造器
+    const cpnContructor =  Vue.extend({
+      // template 是自定义组件的模板 -- 显示在视图层
+      template:`
+        <div>
+          <h2>我是标题</h2>
+          <p>这是内容</p>
+          <p>这是内容 -----</p>
+        </div>`
+    })
+
+    // 2.注册组件  Vue.component('组件名',组件构造器) 传递两个参数
+    Vue.component('my-cpn',cpnContructor)
+
+    // 上面的是全局组件
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

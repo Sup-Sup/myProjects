@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 作用域的使用 -->
+
+<body>
+  <button>按钮1</button>
+  <button>按钮2</button>
+  <button>按钮3</button>
+  <button>按钮4</button>
+  <button>按钮5</button>
+
+  <script src="../../../vue .js"></script>
+  <script>
+    const btns = document.getElementsByTagName('button')
+    // for ( var i = 0; i < btns.length; i++){
+    //   btns[i].addEventListener('click',function(){
+    //     console.log('第' + i + '个按钮被点击')
+    //   })
+    // }
+    // 同步异步问题 -- var 没有作用域，相当于共用了同一个 ---或者说，每次使用的都是同一个 i ，那么 i 被改变成最终形式的那个
+    // 由于 var 没有作用域， 所以 i 在外边和在for循环 里边没区别，想想 i 在外边的情况，for循环执行很快，你还没
+    //点击按钮，他就执行完了，说明 i 已经是遍历完的 那个 i
+
+    for( let i =0; i < btns.length; i++){
+      btns[i].addEventListener('click',function(){
+        console.log('第' + i + '个按钮被点击');
+      })
+    }
+    //相当于作用了 5 次 ，因为 let 有其作用域 ， 每次改属于自己的 i 时，
+    // 不会改变前面（别人）的 i
+    // { i=0
+    //   btns[i].addEventListener('click',function(){
+    //     console.log('第' + i + '个按钮被点击');
+        
+    //   })
+    // }
+    // { i=1
+    //   btns[i].addEventListener('click',function(){
+    //     console.log('第' + i + '个按钮被点击');
+        
+    //   })
+    // }
+    // { i=2
+    //   btns[i].addEventListener('click',function(){
+    //     console.log('第' + i + '个按钮被点击');
+        
+    //   })
+    // }
+    // { i=3
+    //   btns[i].addEventListener('click',function(){
+    //     console.log('第' + i + '个按钮被点击');
+        
+    //   })
+    // }
+    // { i=4
+    //   btns[i].addEventListener('click',function(){
+    //     console.log('第' + i + '个按钮被点击');
+        
+    //   })
+    // }
+   
+  </script>
+</body>
+</html>

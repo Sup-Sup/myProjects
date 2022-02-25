@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 插槽的使用： 1.基本使用 2.默认值  3.多个HTML元素可替换插槽位置 -->
+
+<body>
+  
+  <div id='app'>
+
+    <!-- inline-template的使用 -->
+    <cpn inline-template>
+        <div>
+          <p>These are compiled as the component's own template.</p>
+          <p>Not parent's transclusion content.</p>
+        </div>
+    </cpn>
+
+    <cpn>
+      <img src="C:\Users\HP\Desktop\img\1.jpg" alt="chaoqi的照片" title="还挺帅" width="120px" height="170px">
+    </cpn>
+
+    <cpn>
+      <strong>哈哈哈</strong>
+      <i>嘿嘿嘿嘿嘿</i>
+      <p>插槽还可以这样用</p>
+    </cpn>
+
+    <cpn></cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h1>我还是标题</h1>
+      <p>我是内容</p>
+
+      <!-- 插槽的使用，如果有内容，就显示内容；
+      没有，就显示按钮 -->
+      <slot>
+        <button>按钮</button>
+      </slot>
+
+
+    </div>
+  </template>
+  
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+        }
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

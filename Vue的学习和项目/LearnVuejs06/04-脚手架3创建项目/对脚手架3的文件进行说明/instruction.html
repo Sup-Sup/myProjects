@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+<!-- 
+
+  对包的说明： node_modules 是node的包，npm安装的包所在地
+              public 原封不动的复制到dist文件夹
+              src 源代码
+              .browserslistrc 浏览器相关的配置
+              .gitignore 某些文件想忽略的时候，加进来就行了，一般很少改
+              babel.config.js 对babel的一个配置
+              package.json 比脚手架2看起来少了很多，其中"@vue/cli-service": "~4.5.0" cli-service帮助管理了很多包
+              package-lock.json 是说package.json中^（模糊，最后一位）和 ~（模糊，后两位）安装的版本和真实安装的版本可能是不一致的，中间文件，此处显示真实安装的文件
+              README.md  GitHub创建项目时，默认有这么一个文件
+
+  对main.js 中的说明：
+            new Vue({
+                    render: h => h(App),
+                  }).$mount('#app')
+           等价于
+            new Vue({
+              el: '#app'
+              render: h => h(App)
+            })
+            最终el挂载的东西还是会被render替换掉
+  
+  在脚手架3修改配置：
+            启动配置服务器 ： vue ui
+            直接找 ： node_modules/@vue/cli-service/webpack.config.js 或者 lib的service.js 、config
+            直接自定义配置：vue.config.js在其中加入修改，
+
+
+
+ -->
+
+</body>
+</html>

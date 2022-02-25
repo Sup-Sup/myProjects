@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 第三个demo的主要思想：
+ 先把样子写出来，然后在实现功能（如：按钮带来数据变化，
+ 首先就是先把按钮写出来，然后在写实现功能的代码 ） 
+-->
+
+<!-- 小问题：Vue做开发时，函数常放在何处 -->
+<body>
+
+    <!-- 监听事件--用 v-on ，而后是具体事件（如：click）
+    而后，点击事件中常常会带函数，而函数（或者说方法）放在Vue对象中的methods属性中 -->
+    
+    <div id="app">
+        <h2> 当前计数：{{counter}}</h2>
+        <!-- 监听事件--用 v-on ，而后是具体事件（如：click） 
+        v-on:click="add" 等于 @click="add" --用这个@形式-语法糖：简写
+        -->
+        <!--这是一个不太常见的点击事件，常见的形式是：click=函数 
+            <button v-on:click="counter++">+</button>
+             <button v-on:click="counter--">-</button> 
+        -->
+        <button v-on:click="add">+</button>
+        <button @click="subtraction">-</button>
+        
+    </div>
+
+    <script src="../vue .js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                counter: 0,
+            },
+            methods:{
+                add:function() {
+                    console.log('add方法被执行');
+                    this.counter++;
+                },
+                subtraction:function(){
+                    console.log('subtraction方法被执行');
+                    app.counter--;
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

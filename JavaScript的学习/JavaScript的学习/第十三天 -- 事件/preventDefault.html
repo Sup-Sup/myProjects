@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    123
+  </div>
+  <a href="http://www.baidu.com">百度</a>
+  <form action="http://www.baidu.com">
+    <input type="submit" name="baidu" id="">
+  </form>
+  <script>
+    var a = document.querySelector('a');
+    var ipt = document.querySelector('input');
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+    })
+    ipt.addEventListener('click', function(e) {
+      e.preventDefault();
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+
+     <!-- name相同 -- 互斥 --提交到服务器时，是通过name作为key来提交到服务器的，这可能要学完 node.js 比较好的理解了 -->
+
+    <label for="male">
+      <!-- label标签用于增强用户体验 -->
+      <input type="radio" name="sex" id="male" v-model="sex" value="男">男
+    </label>
+    <label for="female">
+      <!-- 如果这两个name的值不相同，就做不到只能选一个 -->
+      <input type="radio" name="sex" id="female" v-model="sex" value="女">女
+    </label>
+
+    <h1>{{sex}}</h1>
+    
+    <h2>{{message}}</h2>
+  </div>
+  
+ 
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇',
+        sex:'男'
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 注意这两个isShow -->
+
+<body>
+  
+  <div id='app'>
+    <!--  不同块的所有东西，只会在自己所在块的作用域去编译  -->
+
+    <cpn v-show="isShow"></cpn>
+
+  </div>
+
+  <template id="cpn">
+    <div>
+      <p>我是cpn的内容</p>
+      <p v-show="isShow">我是cpn的另一段内容</p>
+    </div>
+  </template>
+  
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇',
+        isShow: true
+      },
+      components: {
+        cpn:{
+          template:'#cpn',
+          data(){
+            return {
+              isShow: false
+            }
+          }
+        }
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

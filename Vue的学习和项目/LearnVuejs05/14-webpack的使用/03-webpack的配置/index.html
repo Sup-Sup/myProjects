@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!-- 直接用，因为内部有commonJS代码，浏览器读不懂，那么可以让webpack来翻译一下 -- 会最终生成一个JavaScript文件，
+    而后在执行 -->
+  <!-- 那么如何来实现这个翻译工作呢 ？？？ webpack ./src/main.js  ./dist/bundle.js 地址是相对于当前文件的  输出 -- 输入
+  其中，webpack 后跟的是你要打包的这个文件（webpack会自动找这个文件相 依赖 的文件 ，因此打包一个就能找到其他的） ，
+   后边是打包到dist下 - 形成一个bundle.js 文件 -->
+
+  <!-- 翻译工作做完了，那么就是可以被浏览器读懂了 -->
+
+
+  <!-- 因此，整个的开发过程就是 1.在src中尽情开发  2.webpack帮忙打包一下
+    3.打包到dist中，打包成一个bundle.js 文件  4.在index.html文件中引用它打包过的版本 -->
+
+
+  <div id="app">
+  </div>
+
+  
+</body>
+</html>
+

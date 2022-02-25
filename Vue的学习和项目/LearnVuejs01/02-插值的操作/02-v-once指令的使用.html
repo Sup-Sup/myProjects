@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 第二个demo的主要思想 ： v-once 会对视图层有什么效果，如何使用他呢？ -->
+<body>
+
+  <div id="app">
+    <h2>{{message}}</h2>
+    <!-- 特殊情况下，使用这个，只需渲染一次，后边message属性值发生变化，也不会在视图层发生改变 -->
+    <h2 v-once>{{message}}</h2>
+
+  </div>
+  <script src="../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        message:'下午好哇'
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+</html>

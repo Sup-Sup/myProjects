@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 如何访问别的模块的代码 -->
+
+<body>
+  
+
+  <!-- 设置了type="module" 表明该文件为模块 -- 封闭的房间 ， 将不会面临命名冲突 -->
+  <!-- 但这就意味着不能岁随便用其他模块中东西 -- 那么，要是想用该怎么办-->
+  <!-- 导出export（提供了模块对外的接口） -- 导入就可 -->
+  <!-- 得是 type="module"时，才能使用export 和 import -->
+
+  
+  <script src="aaa.js" type="module"></script>
+  <script src="mmm.js" type="module"></script>
+  <script src="xiaoHong.js" type="module"></script>
+
+</body>
+</html>

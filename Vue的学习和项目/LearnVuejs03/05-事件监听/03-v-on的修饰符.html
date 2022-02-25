@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 第三个demo的主要思想 ： .stop / .prevent / @keyUp / .once 修饰符的使用 -->
+
+<body>
+
+  <!-- .stop 的使用 -->
+  <div id="app">
+    <h2>{{message}}</h2>
+    <div @click="divclick">
+
+      <!-- 若想要阻止btnclick事件的向上冒泡 -- 造成divclick执行
+      那么 @click.stop -- .stop 就是修饰符 
+    作用相当于 event.stopPropagation() -->
+      aaaa
+      <!-- <button @click="btnclick">按钮1</button> -->
+      <button @click.stop="btnclick">按钮1</button>
+
+    </div>
+
+    <!-- .prevent 修饰符的使用 --相当于event.preventDefault() -->
+
+    </br>
+    <form action="baidu">
+      <!-- .prevent 阻止默认事件的发生 -->
+      <input type="submit" value="提交" @click.prevent="submitclick">
+    </form>
+
+    <!-- 第三个 : 监听某个键盘的键的点击@keyUp / v-on:keyUp
+    如果只是想要监听 特殊的按键 --可以查表  例如：监听回车键@keyUp.enter  -->
+    <input type="text" @keyUp.enter="KeyUp">
+
+    <!-- 第四个： .once修饰符的使用 一旦使用 -- 只能执行一次这个方法 -->
+    </br>
+    <button @click.once="btn2click()"> once按钮</button>
+  </div>
+
+
+
+  <script src="../../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '中午好'
+      },
+      methods: {
+
+        //由于btnclick事件冒泡，所以divclick事件也被执行 
+        divclick() {
+          console.log('divclick执行成功，yeah');
+
+        },
+        btnclick() {
+          console.log('btnclick执行成功，oh,my god');
+
+        },
+        submitclick() {
+          console.log('submitclick');
+
+        },
+        KeyUp(){
+          console.log('执行keyUp事件成功');
+          
+        },
+        btn2click(){
+          console.log('执行btn2click事件成功');
+          
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

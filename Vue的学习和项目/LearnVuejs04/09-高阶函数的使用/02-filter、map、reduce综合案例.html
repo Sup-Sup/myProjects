@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <h2>{{message}}</h2>
+  </div>
+  
+  <script src='vue .js'></script> 
+  <script>
+
+    // 函数式编程：
+    let nums = [1,2,6,26,65,150,9879] ;
+    // 需求：取出数组中小于100的值，而后将新数组中的数字全部乘以2，而后将数组中的元素全部相加
+    const total = nums.filter(function(n){
+      return n < 100;
+    }).map(function(n){
+      return n*2
+    }).reduce(function(preValue,n){
+      return preValue + n
+    },0)
+    console.log(total);
+
+    // 还有一种写法：箭头函数
+    // let nums = [1,2,6,26,65,150,9879] ;
+    // let total = nums.filter(n => n < 100).map(n => n*2).reduce((pre,n) => pre + n);
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

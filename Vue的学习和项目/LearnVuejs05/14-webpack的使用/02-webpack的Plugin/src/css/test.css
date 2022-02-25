@@ -1,0 +1,11 @@
+body{
+  margin: 0px;
+  height: 1000px;
+  width: 1000px;
+  background-image: url(../img/test.jpg);
+}
+.test{
+  height: 500px;
+  width: 500px;
+
+}

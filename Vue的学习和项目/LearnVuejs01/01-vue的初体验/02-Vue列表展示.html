@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 第二个demo的主要思想：
+    v-for="变量名 in 数组名" -- 能够对数组进行遍历，相当于for循环，微信小程序中的wx:for等
+ -->
+<body>
+
+    <div id="app">
+        <ul>
+            <!-- Vue实例赋予它意义 v-for  
+                item也是一个变量，每次的item值是不一样的（0-1-2）
+            -->
+            <li v-for="item in movies">{{item}}</li>
+        </ul>
+    </div> 
+
+    <script src="../vue .js"></script>
+    <script>
+        // new Vue({}) -- 中的Vue是来自文件 Vue.js 的
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:'你好哇，超琦仔',
+                movies:['无问西东','夏至未至','少年派']
+
+            }
+        })
+    </script>
+</body>
+</html>

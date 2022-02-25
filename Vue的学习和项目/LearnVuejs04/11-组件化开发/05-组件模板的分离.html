@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 组件模板的分离：代码的可读性 -->
+
+<body>
+  
+  <div id='app'>
+    <mycpn></mycpn>
+  </div>
+
+  <!-- 1.script标签：类型 - text/x-template -->
+  <!-- <script type="text/x-template" id="cpn">
+    <div>
+      <p>晚上好</p>
+      <p>超琦</p>
+    </div>
+  </script> -->
+
+  <!-- 2.template标签 -->
+  <template id="cpn">
+    <div>
+      <p>good night</p>
+      <p>chaoqi</p>
+    </div>
+  </template>
+  
+  <script src='vue .js'></script> 
+  <script>
+
+    // 1.注册一个全局组件
+    Vue.component('mycpn',{
+      template:'#cpn'
+    })
+
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>  
+</body>
+</html>

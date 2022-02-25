@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 第一个demo的主要思想 : computed属性下 -- 括号 ---和用methods的区别所在 -->
+
+<body>
+  
+  <div id="app">
+    <h2 >{{firstName+' '+lastName}}</h2>
+    <h2 >{{firstName}} {{lastName}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <!-- 下处不用加括号 -->
+    <h2>{{fullName}}</h2>
+
+  </div>
+
+  <script src="../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        message:'中午好',
+        firstName:'Lebron',
+        lastName:'James',
+        
+      },
+      // computed -- 计算属性,当成属性用
+      computed: {
+        fullName:function(){
+          return this.firstName + ' ' + this.lastName
+        }
+
+      },
+      methods: {
+        getFullName:function(){
+          return this.firstName+' '+this.lastName
+        }
+      }
+    })
+  </script>
+</body>
+</html>

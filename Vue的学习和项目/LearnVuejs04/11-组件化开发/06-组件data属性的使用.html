@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 组件的形式 -->
+
+<body>
+  
+  <div id='app'>
+    <h2>{{message}}</h2>
+    <cpn></cpn>
+  </div>
+  
+  <template id="cpn1">
+    <div>
+      <h1>{{title}}</h1>
+      <p>我是专业人手</p>
+      <p>虚心虚心</p>
+    </div>
+    
+  </template>
+  <script src='vue .js'></script> 
+  <script>
+
+    Vue.component('cpn',{
+      template:'#cpn1',
+      // 这是组件中的data形式 --- 属性
+      data(){
+        return {
+          title: 'chaoqi，fighting！！！'
+        }
+      }
+    })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

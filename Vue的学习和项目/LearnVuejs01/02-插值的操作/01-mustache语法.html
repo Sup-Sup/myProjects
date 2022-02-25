@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 第一个demo的主要思想： mustache的一个使用，可以用 连接符 + / 加减乘除 来进行多个属性的一起使用 -->
+<body>
+  
+  <div id="app">
+    <!-- 在mustache语法中，可直接写变量，也可写简单的表达式 -->
+    <h2>{{message+','+firstName+' '+lastName}}</h2>
+    <!-- 效果等同于下面这个 -->
+    <h2>{{message}},{{firstName}}  {{lastName}}</h2>
+    <h2>{{counter*2}}</h2>
+  </div>
+
+  <script src="../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好哇',
+        firstName:'kobe',
+        lastName:'bryant',
+        counter:20
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+</html>

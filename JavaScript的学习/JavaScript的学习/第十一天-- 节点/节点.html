@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <ol>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ol>
+
+
+
+
+
+  <script>
+    // var son = document.querySelector('.son');
+    // console.dir(son);
+    // console.log(son.parentNode);
+
+    // 子节点 childNodes含所有的节点 -- 元素节点、文本节点等等
+    var ul = document.querySelector('ul');
+    console.log(ul.childNodes); 
+    console.log(ul.firstChild);
+    console.log(ul.lastChild);
+
+    console.log(ul.firstElementChild);
+    console.log(ul.lastElementChild);
+
+    console.log(ul.children[0]);
+    console.log(ul.children[ul.children.length - 1]);
+
+    // console.log(ul.childNodes[0].nodeType); 
+    // console.log(ul.childNodes[1].nodeName); 
+    // console.log(ul.childNodes[1].nodeType); 
+
+    // console.log(ul.children);   // 常用这个
+    // var lis = document.querySelectorAll('li');
+
+  </script>
+</body>
+</html>

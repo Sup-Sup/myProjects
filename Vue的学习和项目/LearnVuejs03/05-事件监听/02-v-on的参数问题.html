@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  
+  <div id="app">
+    <h2 >{{message}}</h2>
+    <!-- 注意看下面几个的不同：按钮1是不带参的
+    按钮2 是带参的 -->
+    <button @click="btn1click()">按钮1</button>
+    <button @click="btn1click">按钮1</button>
+
+    
+
+    <!-- 事件定义时，写方法省略了小括号，但方法是带参的，那么Vue就会默认
+      将浏览器产生 的event事件对象作为参数传入到方法中 -->
+    <button @click="btn2click">按钮2</button>
+    <button @click="btn2click()">按钮2</button>
+
+    <!-- 当需要event事件时，可以通过 $event 来传入事件 -->
+    <button @click="btn3click(123,$event)">按钮3</button>
+  </div>
+
+  <script src="../../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        message:'中午好'
+      },
+      methods: {
+        btn1click(){
+          console.log('执行成功');
+          
+        },
+        // 如果函数需要参数，但是调用的时候，没有传入参数，那么函数的形参为undefined
+        btn2click(event){
+          console.log(event);
+          
+        },
+        btn3click(abc,event){
+          console.log(abc,'++++++',event);
+          
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>

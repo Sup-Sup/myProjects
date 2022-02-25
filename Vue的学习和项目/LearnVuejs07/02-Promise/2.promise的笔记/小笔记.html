@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+
+    什么是Promise呢：
+      Promise是异步编程的一种解决方案（更加优雅）。
+      promise就是对异步操作进行封装
+
+    什么时候用到Promise呢：
+        一般有异步操作时，使用Promise对这个异步操作进行封装
+
+
+    使用Promise函数的好处是啥呢？
+        结构比较清晰，处理的代码放一块，网络请求代码放一块
+     
+    什么时候我们会处理异步事件呢：
+        常见的一种场景是网络请求，我们常封装一个网络请求的函数，因为不能立即拿到结果，我们常会传入另一个函数，在数据请求成功时，
+        将数据通过传入的数据回调出去，如果只是一个简单的网络请求，这种方案不会有太大的麻烦，如果网络请求很复杂，就会出现回调地狱
+      
+    promise的实操：
+        promise刚new的时候，需要传入一个参数 -- 实际是函数
+        promise函数中resolve 函数被调用会 去执行then函数
+        请求（异步）成功在Promise函数的resolve中，处理在then中 
+        请求（异步）失败在Promise函数的reject中，处理在catch中
+
+    promise的三个状态：
+        pending： 等待状态，比如正在进行网络请求，或者定时器没有到时间
+        fulfill： 满足状态， 主动回调了resolve，并且回调 .then()
+        reject:  拒绝状态， 主动回调了reject，并且回调 .catch（）
+        async 异步  sync 同步
+
+   -->
+</body>
+</html>

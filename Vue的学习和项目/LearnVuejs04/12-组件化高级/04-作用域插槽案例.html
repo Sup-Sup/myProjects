@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <cpn></cpn>
+
+    <!-- 第二次的展示效果如果想不一样，那么 -->
+    <cpn>
+      <!-- 拿到slot对象 -->
+      <template slot-scope='slot'>
+        <!--  因为aaaa绑定了Language，  所以获取出来  -->
+        <!-- <span v-for="item in slot.aaaa">{{item}}</span> -->
+        <!-- 换过种写法 -->
+        <span>{{slot.aaaa.join('  --  ')}}</span>
+      </template>
+    </cpn>
+
+    <cpn>
+      <template slot-scope="slot">
+        <p>{{slot.aaaa.join(' 8888 ')}}</p>
+      </template>
+    </cpn>
+
+  </div>
+  
+
+  <template id="cpn">
+    <div>
+      <!-- aaaa(变量名字)数据绑定变量Language -->
+      <slot :aaaa='Language'>
+        <ul>
+          <li v-for="item in Language">{{item}}</li>
+        </ul>
+      </slot>
+    </div>
+  </template>
+
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data(){
+            return {
+              Language: ['javascript','Go','C#','java','C++']
+            }
+          }
+        }
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

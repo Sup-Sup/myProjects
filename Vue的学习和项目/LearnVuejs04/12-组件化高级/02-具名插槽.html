@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 在导航的时候（使用环境），多半是具名插槽 -->
+
+<body>
+  
+  <div id='app'>
+
+    <cpn>
+      <!-- <template v-slot:header> v-slot的缩写形式 -->
+      <template #header>
+        <h1>Here might be a page title</h1>
+      </template>
+    
+      <p>A paragraph for the main content.</p>
+      <p>And another one.</p>
+    
+      <template v-slot:footer>
+        <p>Here's some contact info</p>
+      </template>
+    </cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <h2>我是标题</h2>
+      <h3>超琦爱我</h3>
+
+
+      <!-- slot本身是不换行的 -->
+      <slot name='header'>头部</slot>
+      <slot >中间</slot>
+      <slot name='footer'>底部</slot>
+    </div>
+  </template>
+  
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data(){
+            return {
+              name: 'lilei'
+            }
+          }
+        }
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

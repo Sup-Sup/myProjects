@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 第四个demo的主要思想 ： v-text 是如何使用的，要注意什么问题呢？  -->
+
+<body>
+
+  <div id="app">
+    <h2>{{message}},李银河</h2>
+    <!-- v-text使用起来更不灵活，例如下面例子中的 ，李银河  就被覆盖掉了 -->
+    <h2 v-text="message">，李银河</h2>
+    
+  </div>
+
+  <script src="../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        message: '下午好哇',
+       
+      },
+      methods: {
+
+      }
+    })
+  </script>
+</body>
+</html>

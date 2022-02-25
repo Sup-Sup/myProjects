@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 要想数据和HTML元素（按钮、输入框等等）一一的对应，那么就得用数据绑定
+  这个可以运用到获取用户信息的领域，后边可以将数据传递到服务器-->
+
+<body>
+  
+  <div id='app'>
+    
+    <!-- 1.checkbox单选框的使用 - 单选框对应一个布尔值-->
+    <label for="protocol">
+      <input type="checkbox" id="protocol" v-model="isAgree">同意协议
+    </label>
+    <br>
+    <button  :disabled="!isAgree">下一步</button>
+
+    <h2>{{isAgree}}</h2>
+
+    <!-- 2.checkbox多选框的使用 -多选框对应一个数组 -->
+    <!-- <input type="checkbox" value="游泳" v-model="hobbies">游泳
+    <input type="checkbox" value="下棋" v-model="hobbies">下棋
+    <input type="checkbox" value="溜冰" v-model="hobbies">溜冰
+    <input type="checkbox" value="跑步" v-model="hobbies">跑步
+    <h1>您选择的爱好是：{{hobbies}}</h1> -->
+
+    <label :for="item" v-for="item in hobbies"> 
+      <input type="checkbox" name="hobbies" :id="item" :value="item" v-model="personalHobbies">{{item}}
+    </label>
+    <h1>您选择的爱好是：{{personalHobbies}}</h1>
+  </div>
+  
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇',
+        isAgree: false,
+        hobbies: ['跑步','音乐','美食','篮球'],
+        personalHobbies:[]
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

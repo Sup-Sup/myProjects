@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/css">
+    #outer{ height: 200px; border: 1px solid #006400;}
+</style>
+
+  
+
+
+<script>
+  function accesskey(){
+    document.getElementById('runoob').accessKey="r"
+    document.getElementById('g').accessKey="g"
+  }
+  </script>
+  </head>
+  <body onload="accesskey()">
+    
+  <a id="runoob" href="https://www.runoob.com/">菜鸟教程</a><br>
+  <a id="g" href="//www.google.com/">Google</a>
+  <p><b>注：</b>使用Alt + <i> accesskey </i>访问具有指定访问键的元素。</p>
+  
+  </body>
+
+</html>

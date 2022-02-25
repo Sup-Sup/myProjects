@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <div id="app">
+    <h2 :style="[baseStyle,baseStyle1]">{{fullName}}</h2>
+  </div>
+
+  <script src="../../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '中午好',
+        firstName:'kobe',
+        lastName:'bryant',
+        baseStyle: { background: 'skyblue' },
+        baseStyle1: { fontSize: '100px' }
+      },
+      computed: {
+        // 使用fullName属性时，结果是 get 中的 return 
+        //计算属性一般是没有set方法的，只读属性 -- 只能读的
+        //因此，还有更加简便的方法 -- 如下
+        // fullName:function(){
+        //   return this.firstName + " " + this.lastName
+        // }
+        fullName: {
+          set: function() {
+
+          },
+          get: function() {
+            return this.firstName + " " + this.lastName;
+          }
+        }
+      },
+      methods: {
+
+      }
+    })
+  </script>
+
+</body>
+
+</html>

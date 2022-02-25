@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 实现代码功能，将功能展开来看，一步一步是什么这样，去想问题 -->
+
+<body>
+  
+  <div id='app'>
+    <strong v-if="isUser">
+      <label for="user">用户账号</label>
+      <!-- vdom Vue内部的复用 -- 虚拟dom 渲染时，对比后复用 key -- 标识符，作为标识的，两个
+      key 不同时，则不复用 - 会创建新的input -->
+      <input type="text" id="user" placeholder="写入账号" key="user">
+    </strong>
+    <strong v-else>
+      <!-- label for 当点击元素中的文字（for和id相同）（此例为用户邮箱）时，
+        会定位到input框内   -- 而placeholder 将在input框显示中 -- 提示-->
+      <label for="email">用户邮箱</label>
+      <input type="text" id="email" placeholder="写入邮箱" key="email">
+    </strong>
+    <button @click="isUser = !isUser"> 切换登录类型</button>
+  </div>
+  
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇',
+        isUser: true
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script> 
+</body>
+</html>

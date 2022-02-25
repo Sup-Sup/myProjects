@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active{
+      background: tomato;
+
+    }
+   
+  </style>
+</head>
+
+<!-- 第二个demo的主要思想 ： 如果想看某行代码的效果，进入浏览器检查一下 ，测试一下 
+v-bind绑定class的方式一：对象语法   这种代码写法会用在何处？ -->
+
+<body>
+
+  <div id="app">
+
+    <!-- v-bind 通过变量来改变class的样式 ，其中 class 后边跟的是一个对象
+    如果还有一个class， 那么不会覆盖掉，而是一起合并去做样式调整 -->
+
+    <!-- 为什么要两种一起写呢？ --前面这种是一定要有的样式设计，而后边这种是有时需要用，有时不用 -->
+    <h2 class="title"  v-bind:class="getClasses()">{{message}}</h2>
+    
+    <!-- v-on 监听事件  注意上下两个都调用了方法，而括号… -->
+    <button v-on:click="btnClick">变色</button>
+  </div>
+  
+  <script src="../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        message:'你好哇',
+        isActive:true,  
+        // true --执行  false--不执行
+        isHover:true
+      },
+      methods: {
+        btnClick:function(){
+          this.isActive=!this.isActive
+        },
+        getClasses:function(){
+          return {active:this.isActive, hover:this.isHover}
+        }
+        
+      }
+    })
+  </script>
+   
+  </script>
+</body>
+</html>

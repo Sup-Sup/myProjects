@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 组件中的methods的使用 -->
+
+<body>
+  
+  <div id='app'>
+    <h2>{{message}}</h2>
+    <!-- 引用组件mycpn -->
+    <mycpn></mycpn>
+    
+    <mycpn></mycpn>
+    <mycpn></mycpn>
+    <!-- 这三个东东，点击一个按钮时，数据counter会不会全发生变化？
+    不会，是因为组件中的data是函数，它是由作用域的
+  这会带来什么好处呢？ 每个的东东都是独立的，其他地方引用这个，不会受到其他操作的影响 -->
+  </div>
+  
+  <!-- 将组件模板放在下边 -->
+  <template id="cpn">
+    <div>
+      <h2>我是一个小组件</h2>
+      <h1>现在的数据是：{{counter}}</h1>
+      <button @click="increment">+</button>
+      <button @click="decrement">-</button>
+
+    </div>
+  </template>
+
+  <script src='vue .js'></script> 
+  <script>
+
+    // 1.注册组件
+    Vue.component('mycpn',{
+      template:'#cpn',
+      // data是函数，调用多次也返回不同对象
+      data(){
+        return{
+          counter: 0
+        }
+      },
+      // 组件中使用的methods方法和Vue实例中的用法一样
+      methods: {
+        increment(){
+          return this.counter++
+        },
+        decrement(){
+          return this.counter--
+        }
+      }
+    })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

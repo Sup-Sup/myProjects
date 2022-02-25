@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    Vuex是用来做Vue.js应用程序的状态管理的 -- 集中式存储管理 
+    Vuex是响应式的，管理多个组件之间的共享状态，自己封装的不能保证可以封装的对象内属性全部都做到响应式
+
+    什么时候我们需要在多个组件之间进行共享呢？？
+      多个状态，在多个界面进行共享，如：用户的登录状态、用户名称、头像等，商品收藏等，都可以统一管理，而且他们还是响应式的
+
+
+    变量一般是管理状态的
+
+    vuex的使用类似vue-router ，main.js中， 挂载store => Vue.prototype.$store = store
+
+    Devtools -- vue开发的一个浏览器插件， 记录被改变的状态 ， 而且Devtools 也能用来做调试
+
+    通过 mutations 来改变状态，通过Devtools 来跟踪状态变化  mutations -- 变化
+
+    在Vuex.Store中操作数据，其他地方使用
+
+    
+const store = new Vuex.Store({
+  state: {
+    // 初始数据 -- 保存状态的地方
+    counter: 0
+  },
+  mutations:{
+    // 方法, 会自动将state当做参数传输进来
+    increment(state){
+      state.counter++
+    },
+    decrement(state){
+      state.counter--
+    },
+     incrementCounter(state,count){
+      state.counter += count
+    }
+  },
+  actions: {
+    // 主要是异步操作，做完了异步操作，再去mutations 中做数据的操作
+    // context 等同于store
+    aChangeInfo(context,payload){
+      setTimeout(() => {
+        context.commit('changeInfo')
+        console.log(payload);
+      },1000)
+    }
+  },
+  getters: {
+      // 类似computed 属性
+          // 默认传递一个state对象
+    squareCounter(state){
+      return state.counter * state.counter
+    },
+    higher(state){
+      return state.students.filter( s => s.height > 180)
+    },
+    //另一种形式来获取数据,后边都是getters 参数
+    higherLenght(state,getters) {
+      return getters.higher.length
+    },
+    getHigher(state) {
+      return function (height) {
+        return state.students.filter( s => s.height > height)
+      }
+    },
+    changeInfo(state){
+      //  state.info.name = 'lilei'
+      // state.info['address'] = "费城"  不是响应 式的
+      // Vue.set(state.info,'address','费城')  // 响应式
+      // delete state.info.age // 不是响应式的
+      Vue.delete(state.info,'age') //响应式的
+    }
+  },
+  modules: {
+    // 模块化
+  }
+})
+
+      methods: {
+    add(){
+      this.$store.commit('increment')
+    },
+    sub(){
+      this.$store.commit('decrement')
+    },
+    addCounter(count) {
+      // 1、普通的提交风格
+      // this.$store.commit('incrementCounter',count)
+      // 2、特殊的提交风格
+      this.$store.commit({
+        type: 'incrementCounter',
+        count
+      })
+    },
+  }
+
+  state单一状态树 -- single source of truth  -- 单一数据源  Vue官方推荐只使用一个 store 对象,如果你使用多个store的来保存操作状态信息
+  的话，之后的管理和维护会变得很困难
+
+  getters:  数据需要做变化，在getters 中实现这个变化，类似computed的使用方法,而后在组件中使用即可
+
+  mutations ： Vuex的store状态的更新唯一方式 -- 提交mutation
+  mutation主要包括两部分：字符串的事件类型（type） 、 一个是回调函数（handler）,该回调函数的第一个参数是 state
+
+  mutation更新数据时，可在视图层对其做修改，参数被称为mutation的载荷（Payload）
+  如果是一个参数就传递一个，如果是多个，可传递一个对象过去，而后在取出需要的参数
+
+      向Vuex添加属性或者删除属性： Vue.delete  Vue.set
+        state.info.name = 'lilei' // 响应式
+          // state.info['address'] = "费城"  不是响应 式的
+          // Vue.set(state.info,'address','费城')  // 响应式
+          // delete state.info.age // 不是响应式的
+          Vue.delete(state.info,'age') //响应式的
+
+      mutation常量类型，定义额外的一个文件，存放使用的常量，在view 和 mutations 处时，使用统一的常量，不易出错
+
+      通常情况下，Vuex要求我们 mutation 中的方法 必须是同步方法
+          主要原因是当我们使用devtools 时，我们可以使用Devtools来帮助我们捕捉 mutation 的快照，但如果是
+          异步操作，那么Devtools不能很好的跟踪这个操作造成的变量变化
+
+      actions 类似 mutations ，但是是用来代替mutation 来进行异步操作的  view -- actions -- mutation
+
+      dispatch 还能够返回一个Promise
+
+      modules: Vue 推荐使用单一状态树，但是Vuex 中的state 中数据过多，store对象就会过于复杂，
+        为了简化一些，就使用modules 将store分割成模块，内部含有 state,mutations,actions,getters等
+        这里边的actions 中的context 和根中的context不一样，modulesA 中的 context -- modulesA 的mutation
+              const modulesA = {
+                state: {
+                  name: '张三'
+                },
+                mutations: {
+                  updateName(state,payload){
+                    state.name = payload
+                  }
+                },
+                actions: {
+                  aUpdateName(context){
+                    setTimeout(() => {
+                      context.commit('updateName','李四')
+                    },2000)
+                  }
+                },
+                getters: {
+                  fullName(state){
+                    return state.name + '11111'
+                  },
+                  fullName2(state,getters){
+                    return getters.fullName + '2222'
+                  },
+                  fullName3(state,getters,rootState){
+                    return getters.fullName2 + rootState.students[0].name 
+                  }
+                }
+              }
+
+
+
+   -->
+</body>
+</html>

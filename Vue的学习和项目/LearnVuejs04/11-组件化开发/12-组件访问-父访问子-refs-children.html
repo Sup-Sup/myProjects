@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <h2>{{message}}</h2>
+
+    <cpn></cpn>
+    <cpn></cpn>
+    <!-- 可以一一对应的拿子组件 -->
+    <cpn ref="aaa"></cpn>
+
+    <button @click="btnClick">按钮</button>
+  </div>
+  
+  <template id="cpn">
+    <div>
+    <h2>{{showMessage()}}</h2>
+    <h2>{{message}}</h2>
+    </div>
+  </template>
+
+  <script src='vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'中午好哇'
+      },
+      components: {
+        cpn: {
+          template:'#cpn',
+          methods: {
+            showMessage(){
+              console.log('子组件的showMessage函数执行成功');
+            }
+          },
+          data(){
+            return {
+              message: '嗯，不错，写得漂亮！！！！'
+            }
+          }
+        }
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+        btnClick(){
+
+          // 1.$children 的使用
+          // console.log(this.$children[0].message);
+
+          // // 此时便拿到了子组件里的方法
+          // this.$children[0].showMessage();
+
+          // console.log('此时拿到子组件的方法了');
+
+          // 2.$refs - 默认是空对象（对象类型） 要在HTML元素中加内容 ref="aaa"
+          // console.log(this.$refs.aaa.message);
+        }
+      }
+    })     
+   
+  </script>
+</body>
+</html>
