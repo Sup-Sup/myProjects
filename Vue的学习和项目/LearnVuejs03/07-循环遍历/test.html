@@ -9,7 +9,7 @@
 
 <body>
   <div id="example-3">
-    <button v-on:click="warn('Form cannot be submitted yet.', $event)">
+    <button v-on:click="warn('Form cannot be submitted yet.' ,  $event)">
       Submit
     </button>
   </div>
@@ -20,7 +20,7 @@
     new Vue({
       el: '#example-3',
       methods: {
-        warn: function (message, event) {
+        warn (message, event) {
           // 现在我们可以访问原生事件对象
           if (event) {
             event.preventDefault()

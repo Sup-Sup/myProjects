@@ -32,7 +32,8 @@
           <!-- 变量 | 过滤器 这个变量会传给js文件的methods中的filters函数中-->
           <!-- <td>{{item.price | showPrice}}</td> -->
           <td>
-            <button @click="subtraction(index)" :disabled="item.count==1 ? true : false">-</button> {{item.count}}
+            <button @click="subtraction(index)" 
+            :disabled="item.count==1 ? true : false">-</button> {{item.count}}
             <!-- 进行一个匹配，一一对应 -->
             <button @click="add(index)">+</button>
           </td>

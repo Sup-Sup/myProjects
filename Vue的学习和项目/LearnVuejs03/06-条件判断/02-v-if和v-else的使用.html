@@ -6,31 +6,24 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <!-- 
+     v-if="isShow"  v-if后边跟的只能是变量，不能是表达式
+   -->
   <div id='app'>
-    <h2 v-if="isShow">
-      {{message}}
-   
-      <div>jfiaogj</div>
-      <div>jfiaogj</div>
-      <div>jfiaogj</div>
-      <div>jfiaogj</div>
-      <div>jfiaogj</div>
-      <div>jfiaogj</div>
-      <div>jfiaogj</div>
-
-    </h2>
+    <div v-if="isShow">
+      hello
+    </div>
     <!-- <h1 v-else="!isShow">isShow为false时，显示我</h1> -->
     <h1 v-else>isShow为false时，显示我</h1>
   </div>
   
-  <script src="vue .js"></script> 
+  <script src="./vue .js"></script> 
   <script>
     const app = new Vue({
       el: '#app',
       data: {
         message:'上午好哇，今天天气不错',
-        isShow: true
+        isShow: false
       },
       computed: {
   
