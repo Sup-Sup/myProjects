@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="hi">
+    <div>{{totalPrice}}</div>
+    <div>{{fullName()}}</div>
+    <div>{{fullName}}</div>
+    <div>{{fullName()}}</div>
+    <div>{{fullN}}</div>
+    <div>{{fullN}}</div>
+    <div>{{fullN}}</div>
+  </div>
+  <script src="../../vue .js"></script>
+  <script>
+    new Vue ({
+      el:'#hi',
+      data: {
+        fisN: 'ko ',
+        scoN: 'you',
+        books: [
+          {id:01,name:'JavaScript高级指南',price:98},
+          {id:02,name:'Unix编程艺术',price:58},
+          {id:03,name:'深入理解计算机原理',price:68},
+          {id:04,name:'现代操作系统',price:38},
+        ]
+      },
+      computed: {
+        fullN() {
+          console.log('computed -- fullN');
+          return this.fisN + this.scoN
+        },
+        totalPrice() {
+          let sum = 0;
+          for ( let i = 0; i < this.books.length ; i++) {
+            sum = sum + this.books[i].price
+          }
+          return sum
+        }
+      },
+      methods: {
+        fullName() {
+          console.log('fullName() -- methods');
+          return this.fisN + this.scoN
+        }
+      }
+    })
+  </script>
+</body>
+</html>

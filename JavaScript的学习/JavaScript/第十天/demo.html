@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试</title>
+</head>
+
+<body>
+  <button>测试</button>
+  <script>
+    var btn = document.querySelector('button');
+    var flag = 1;
+
+    // btn.onclick = function () {
+    //   console.log(flag);  // 1
+    //   flag = -1;  // 见笔记12的简单数据类型传参  内部的操作，不会影响外部的flag
+    //   console.log(flag);  // -1
+    // }
+    // console.log(flag);  // 1
+
+
+    var index = 0;
+    for ( var i = 0; i <= 5 ; i++ ) {
+      if (!index) {
+        index ++;
+      }
+      console.log(index);
+    }
+    console.log(index);
+
+    function aa() {
+      console.log(++index);
+    }
+    aa();
+    console.log(index);
+  </script>
+</body>
+</html>

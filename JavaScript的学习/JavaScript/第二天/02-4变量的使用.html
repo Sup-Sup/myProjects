@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>变量</title>
+</head>
+<script>
+   /*  var name = '漩涡鸣人';
+  var age = '16';
+  var address = '火影村';
+  var phone = '1233194916'; */
+  // 同时声明多个变量
+  var name = '漩涡鸣人',
+  age = '16',
+  address = '火影村',
+  phone = '1233194916';
+  console.log(name);
+  console.log(age);
+  console.log(address);
+  console.log(phone);
+
+  // 声明变量的特殊情况： 
+  // 1只是声明，不赋值 只申请了内存空间，程序不知道内容是什么，undefined
+  var car;
+  console.log(car);
+  // 2不声明，只是赋值，不提倡
+  classroom = 220;
+  console.log(classroom);
+  // 3不赋值，不声明，报错
+  // console.log(group);
+  var apple1 = '红苹果';
+  var apple2 = '青苹果';
+  var temp;
+  console.log('此时的Apple1是'+ apple1);
+  console.log('此时的Apple2是'+ apple2);
+  temp = apple1;
+  apple1 = apple2;
+  apple2 = temp;
+  console.log('此时的Apple1是'+ apple1);
+  console.log('此时的Apple2是'+ apple2);
+</script>
+<body>
+  
+</body>
+</html>

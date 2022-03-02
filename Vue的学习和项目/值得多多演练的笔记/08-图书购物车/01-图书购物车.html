@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="01-图书购物车.css">
+  
+</head>
+<body>
+  
+  <div id='app'>
+    <div  v-if="books.length">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>书籍名称</th>
+            <th>出版日期</th>
+            <th>价格</th>
+            <th>购买数量</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+       <tbody>
+        <tr v-for="(item,index) in books">
+          <!-- 会遍历books数组，得到item对象 -->
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.date}}</td>
+          <td>{{finalPrice(item.price)}}</td>
+          <!-- 变量 | 过滤器 这个变量会传给js文件的methods中的filters函数中-->
+          <!-- <td>{{item.price | showPrice}}</td> -->
+          <td>
+            <button @click="subtraction(index)" :disabled="item.count==1 ? true : false">-</button> {{item.count}}
+            <!-- 进行一个匹配，一一对应 -->
+            <button @click="add(index)">+</button>
+          </td>
+          <td>
+            <button @click="clickDel(index)" >移除</button>
+          </td>
+        </tr>
+       </tbody>
+       
+      </table>
+      <h2>总价：{{totalPrice}}</h2>
+    </div>
+    
+    <!-- 有时候将代码收起来更容易看清楚想实现的逻辑 -->
+    <h2 v-else>购物车为空</h2>
+  </div>
+ 
+  <script src='vue .js'></script> 
+  <script src="01-图书购物车.js"></script>
+
+  
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+</head>
+<style>
+  * {
+    padding: 0px;
+    margin: 0px;
+  }
+  select {
+    display: block;
+    width: 90px;
+    height: 20px;
+  }
+  div>p {
+    display: block;
+    height: 30px;
+    width: 50px;
+    border: 1px solid pink;
+    
+  }
+  .other {
+    display: none;
+  }
+  body {
+    background-color: #fff;
+  }
+
+</style>
+<!-- <body>
+  <button>开关</button>
+  <script>
+    var btn = document.querySelector('button');
+    var body = document.body;
+    // console.log(body);
+    var flag = 1;
+    btn.onclick = function () {
+      if( flag === 1 ) {
+        body.style.backgroundColor = 'black';
+        flag = 0
+      }else {
+        body.style.backgroundColor = 'pink';
+        flag = 1;
+      } 
+    }
+  </script> -->
+  <!-- <select name="gongNeng" id="">
+    <option value="微博">微博</option>
+    <option value="私信">私信</option>
+    <option value="评论">评论</option>
+  </select> -->
+  <!-- <div>
+    <p class='mouseover'>微博</p>
+  </div>
+  <div class="other">
+    <p>私信</p>
+    <p>评论</p>
+  </div>
+  <script>
+    var mouse = document.querySelector('.mouseover');
+    var other = document.querySelector('.other')
+    mouse.onmouseover = function () {
+      console.log('--------');
+      other.style.display = 'block';
+    }
+    mouse.onmouseout = function () {
+      other.style.display = 'none'
+    }
+  </script> -->
+  <!-- <div>
+    设置密码：<input type="message" >
+    <span></span>
+  </div>
+  <script>
+    var ipt = document.querySelector('input');
+    var span = document.querySelector('span')
+    ipt.onblur = function () {
+      if(this.value.length >= 6 && this.value.length <=12) {
+        span.innerText = '你输入的正确';
+        span.className = 'right'
+      }else if (this.value.length < 6) {
+        span.innerText = '你输入的密码过短';
+        span.className = 'wrong'
+      } else {
+        span.innerText = '你输入的密码过长';
+        span.className = 'wrong'
+      }
+    }
+  </script> -->
+  <!-- <input type="text" value="手机" class="text">
+  <input type="reset" value="搜索" class="reset">
+  <script>
+    var text = document.querySelector('.text');
+    text.onfocus = function () {
+      // console.log('得到了焦点');
+      if(text.value == '手机') {
+        text.value = '';
+        text.style.color = 'red';
+      }
+    }
+    text.onblur = function () {
+      // console.log('失去了焦点');
+      if(this.value == '') {
+        this.value  = '手机';
+        this.style.color = 'gray'
+      }
+    }
+
+  </script> -->
+  <!-- <div>hello</div>
+  <script>
+    var div = document.querySelector('div');
+    div.onclick = function() {
+      // div.style.backgroundColor = 'red';
+      div.className = 'div addClass'
+    }
+  </script> -->
+  <!-- <div>
+    点击x关闭二维码
+    <p>x</p>
+    <img src="css/er.jpeg" alt="">
+  </div>
+  <script>
+    var x = document.querySelector('p');
+    var img = document.querySelector('img');
+    x.onclick = function() {
+      img.style.display = 'none';
+    }
+  </script> -->
+  <!-- <div></div>
+  <script>
+    var div = document.querySelector('div');
+    div.style.background = 'red';
+    div.style.height = '200px';
+    div.style.width = '180px'
+  </script> -->
+
+  <!-- <div>
+    
+    <img src="css/open.png" alt="">
+    <input type="text" name="" id="">
+  </div>
+  <script>
+    var eye = document.querySelector('img');
+    var ipt = document.querySelector('input');
+    var flag = 0;  
+    // flag = 1; 常用在两种情形转变时使用，作为判断条件
+    eye.onclick = function() {
+      if (flag === 0) {
+        ipt.type = 'text';
+        eye.src = 'css/open.png';
+        flag = 1;  
+        console.log(flag);
+      }else {
+        ipt.type = 'password';
+        eye.src = 'css/close.png';
+        flag = 0;
+        console.log(flag);
+      }
+    }
+
+  </script> -->
+  <!-- <div id="weekday">周末，好好休息下子</div>
+  <script>
+    var weekday = document.getElementById('weekday');
+    console.log(weekday);  //   <div id="weekday">周末，好好休息下子</div>
+    console.dir(weekday);  // 返回div对象，可以查看里边的属性和方法
+  </script> -->
+  <!-- <ul>
+    <li>春眠不觉晓1</li>
+    <li>春眠不觉晓2</li>
+    <li>春眠不觉晓3</li>
+    <li>春眠不觉晓4</li>
+  </ul>
+  <ol>
+    <li>花落知多少1</li>
+    <li>花落知多少2</li>
+    <li>花落知多少3</li>
+    <li>花落知多少4</li>
+  </ol>
+  <script>
+    var lis = document.getElementsByTagName('li');
+    console.log(lis);
+    console.log(lis[0]);
+    // 操作lis中的所有元素
+    for (var i = 0; i <= lis.length -1; i++ ) {
+      console.log( lis[i] );
+    }
+    // 如果页面中只有一个li,或者没有这个元素，返回的依旧是伪数组的形式；
+    var ol = document.getElementsByTagName('ol');
+    console.log(ol[0].getElementsByTagName('li')); // 获取到ol中的li的集合
+  </script> -->
+  <!-- <div>
+    <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    <div id="nav">
+      <ul>
+        <li>首页</li>
+        <li>产品</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    //  getElementsByClassName 根据元素类名获得元素集合；
+    // 类似getElementsByTagName用法
+    var boxs = document.getElementsByClassName('box')
+    console.log(boxs);
+    console.log(boxs[0]);  //  <div class="box">盒子1</div>
+    // querySelector 返回指定选择器的第一个元素对象， 里边的选择器要加符号 .box #nav
+    var firstBox = document.querySelector('.box');
+    console.log(firstBox);  //  <div class="box">盒子1</div>
+    var nav = document.querySelector('#nav');
+    console.log(nav);  
+    var li = document.querySelector('li');
+    console.log(li);  // <li>首页</li>
+    // querySelectorAll() 返回指定选择器的所有元素对象集合
+    var boxs = document.querySelectorAll('.box');
+    console.log(boxs);
+    console.log(boxs[0]);  //  <div class="box">盒子1</div>
+    var lis = document.querySelectorAll('li');  
+    console.log(lis);
+  </script>  -->
+  <!-- <script>
+    // 获取body元素
+    var bodyEle = document.body;
+    console.log(bodyEle);
+    //  获取HTML元素
+    var htmlELe = document.documentElement;
+    console.log(htmlELe);
+  </script> -->
+  <!-- <button>显示时间</button>
+  <div>时间显示位置</div>
+  <p>时间再次显示</p>
+  <script>
+    var btn = document.querySelector('button');
+    var div = document.querySelector('div');
+    btn.onclick  = function () {
+      div.innerText = getTime();
+    }
+  function getTime() {
+  // 格式化日期  年月日
+  var date = new Date();
+ /*  console.log(date.getFullYear());  // 返回当前日期的年
+  console.log(date.getMonth() + 1);  // 返回的月份从0 ~ 11 ，所以得加上一个月  ；类似星期
+  console.log(date.getDate()); // 返回的是几号
+  console.log(date.getDay());  // 周一返回1，周六返回6，周日返回0 */
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  month = month < 10 ? '0' + month : month;
+  var dates = date.getDate();
+  dates = dates < 10 ? '0' + dates : dates;
+  var arr = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+  var day = date.getDay();
+  // console.log('今天是 '+year+'年 '+month +'月 '+ dates+'号 '+arr[day]);
+  return  '今天是 '+year+'年 '+month +'月 '+ dates+'号, '+arr[day]
+}
+// 元素可以不用添加事件，直接使用
+var p = document.querySelector('p');
+p.innerText = getTime() 
+</script>
+-->
+
+<!--   <div></div>
+  <p>
+
+    我是p标签
+  </p>
+  <script>
+    var div = document.querySelector('div');
+    // <strong>今天是</strong>大年初四  innerText识别不了HTML标签，去除空格和换行
+    div.innerText = '<strong>今天是</strong>大年初四';    
+    // innerHTML识别HTML标签  w3c标准
+    var p = document.querySelector('p');
+    console.log(p.innerText);
+    p.innerHTML = '<strong>今天是</strong>大年初四';
+  </script> -->
+<!-- 
+  <div>
+    <button id='zjl'>周杰伦</button>
+    <button id='zxy'>张学友</button>
+  </div>
+  <img src="css/zjl.jpeg" alt="周杰伦" title="周杰伦">
+  <script>
+    var zjl = document.querySelector('#zjl');
+    var zxy = document.querySelector('#zxy');
+    var img = document.querySelector('img')
+    zjl.onclick = function() {
+      img.src = 'css/zjl.jpeg';
+      img.alt = '周杰伦';
+      img.title = '周杰伦'
+    }
+    zxy.onclick = function() {
+      img.src = 'css/zxy.jpeg';
+      img.alt = '张学友';
+      img.title = '张学友';
+    }
+  </script> -->
+<!-- 
+  <div></div>
+  <img src="" alt="">
+  <script>
+    var div = document.querySelector('div');
+    var img = document.querySelector('img');
+
+    var date = new Date();
+    var h = date.getHours();
+    if ( h < 12 ) {
+      img.src = 'css/morning.jpeg';
+      div.innerText = '早上好'
+    }else if ( h < 14 ) {
+      img.src = 'css/noon.jpeg';
+      div.innerText = '午安'
+    } else {
+      img.src = 'css/afternoon.gif';
+      div.innerText = '下午好'
+    }
+  </script> -->
+
+  <!-- <button>修改表单属性</button>
+  <input type="text" value="hello">
+  <script>
+    var btn = document.querySelector('button');
+    var ipt = document.querySelector('input');
+
+    btn.onclick = function () {
+      // btn.disabled = 'true';
+      this.disabled = true;  //this指向事件函数的调用者
+      ipt.value = '点击过了'
+    }
+  </script> -->
+
+
+
+</body>
+</html>

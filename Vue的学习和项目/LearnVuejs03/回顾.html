@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <h2>{{message}}</h2>
+    <ul>
+      <!-- <li v-for='item in song'>{{item}}</li> -->
+      <!-- 这里要注意下方的第一个参数是值,第二个元素才是索引号index -->
+      <li v-for='(item, index) in song'>{{index + 1}}.{{item}}</li>
+      <!-- 下方的v-for与上方的同理，v-for='(value, key, index) in man', 括号内的参数就是第一个是值，第二个是键，第三个是索引-->
+      <li v-for='(value, key, index) in man'>{{index + 1}} - {{key}} - {{value}}</li>
+    </ul>
+  </div>
+  
+  <script src='../vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇',
+        song: ['忽而今夏','初夏','我和我的祖国','forever love','爱如潮水'],
+        man: {
+          name: 'zeng',
+          age: 15,
+          height: 1.75,
+        },
+      },
+      computed: {
+        showSongList() {
+
+        }
+      },
+      methods: {
+   
+      }
+    })     
+   
+  </script>
+</body>
+</html>

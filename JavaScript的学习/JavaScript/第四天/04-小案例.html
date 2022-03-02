@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闰年</title>
+</head>
+<script>
+/*     if(条件表达式){
+      执行语句;
+    }
+    alert('----');
+    // 执行思路：如果为真，执行大括号中的语句，否则执行if语句后的代码
+ */
+    // var year = prompt('请输入年份');
+    // year = parseInt(year);
+    // if(year%400 ==0 || year%4==0 && year%100 != 0){
+    //   alert(year + '年是闰年')
+    // }else {
+    //   alert(year + '年是平年')
+    // }
+
+    // var userName = prompt('请输入您的姓名');
+    // if(userName == '刘德华'){
+    //   alert('恭喜您，获得5元现金奖。')
+    // } else {
+    //   alert('欢迎下次再次光临。')
+    // }
+       for (var i = 1; i <= 5; i++) {
+         if(i == 3){
+           break;
+         }
+         console.log('我已经获得'+i+'个苹果了哟');
+       }
+    // var grade = prompt('请输入您的成绩；');
+    // grade = parseFloat(grade);
+    // if(grade >= 90) {
+    //   alert('A');
+    // }else if(grade >= 80){
+    //   alert('B')
+    // }else if(grade >= 70){
+    //   alert('C')
+    // }else if(grade >= 60){
+    //   alert('D')
+    // }else {
+    //   alert('E')
+    // }
+
+    // var num = prompt('请输入数据：');
+    // var result = num < 10 ? '0' + num : num;
+    // alert(result);
+ 
+
+      // var fruit = prompt('请输入水果名：');
+      // switch (fruit) {
+      //   case '苹果':
+      //     alert('3.5元/斤');
+      //     break;
+      //   case '雪梨':
+      //     alert('5.5元/斤');
+      //     break;
+      //   case '香蕉':
+      //     alert('1.5元/斤');
+      //     break;
+      //   default: 
+      //    alert('没有'+fruit+'的相关数据')
+      // }
+
+      // for循环：
+      /* for(初始化变量; 条件表达式 ; 操作表达式){
+         循环体
+      }
+        初始化变量常作为计数器使用;  条件表达式用来判断循环是否继续执行，即终止条件;  
+        操作表达式是每次循环最后执行的代码，常用于计数器变量更新（增或减）
+       */
+      // var result = 0;
+      // for(var i = 1; i<= 100; i++){
+      //   result = result + i; 
+      // }
+      // console.log(result);
+      // console.log(result / 100);
+
+      // var sum1 = 0;
+      // var sum2 = 0;
+      // for(var i = 1; i<= 100; i++){
+      //   if(i%2 ==0){
+      //     sum1 = sum1 + i;
+      //   }else {
+      //     sum2 +=i;
+      //   }
+      // }
+      // console.log('偶数和为'+sum1);
+      // console.log('奇数和为'+sum2);
+
+      var sum3 = 0;
+      for(var j = 1; j <= 100; j++){
+        if(j%3 == 0){
+          sum3 =sum3 + j;
+        }
+      }
+      console.log('能被3整除的数字之和为'+sum3);
+
+
+      // var sum = prompt('请输入班级内有多少个学生：');
+      // sum = parseInt(sum);
+      // var  score = 0,totalScore = 0, averageScore = 0;
+      // for(var i = 1; i <= sum; i++){
+      //    score= prompt('请输入第'+i+'个学生的成绩:')
+      //    score = parseFloat(score);
+      //    totalScore = totalScore + score
+      // }
+      // averageScore = totalScore / sum;
+      // alert('班级的总成绩是'+ totalScore);
+      // alert('班级的平均成绩是'+averageScore);
+      //   var str = 'hello'
+      // for(var i =1; i<=5; i++){
+      //   str = str + '-'
+      // }
+      // console.log(str);
+
+
+      // // 
+      //   for(var i= 1; i <=2 ;i++){
+      //     console.log('这是外层循环的第'+i+'次-------');
+      //     for(var j= 1; j<=3; j++){
+      //       console.log('这是内层循环的第'+j+'次');
+      //     }
+      //   }
+      //外层循环控制行数，内层循环控制列数；倒三角形
+      for(var i = 1; i <=10; i++){
+        var str = '';
+        for(var j=i; j <=10; j++){
+          str = str + 'Hi'
+        }
+        console.log(str);
+      }
+
+
+      // 
+      var rows = prompt('请输入行数：');
+      var cols = prompt('请输入列数：');
+      var str = '';
+      for(i = 1; i <= rows; i++){
+        for(j=1; j <=cols; j++){
+          str = str + 'Hi'
+        }
+        str = str + '\n';
+      }
+      console.log(str);
+
+
+      //正三角形：注意区分倒三角和正三角的区别
+      var str= '';
+      for(var i = 1; i<= 10; i++){
+        for(var j= 1; j<=i; j++){
+          str = str + 'Hi';
+        }
+        str = str + '\n';
+      }
+      console.log(str);
+
+      //九九乘法表：
+      var str = '';
+      for(var i= 1; i <= 9; i++){
+        for(var j =1; j <= i; j++){
+          str =str + j + 'x' + i + '='+i*j + ' ';
+        }
+        str = str + '\n';
+      }
+      console.log(str);
+
+      // var i =1;
+      // while(i <= 100) {
+      //   console.log('这个人'+i+'岁了');
+      //   i++;
+      // }
+
+      // var num = 0, i =1 ;
+      // while(i <=100){
+      //   num = num + i;
+      //   i++;
+      // }
+      // console.log(num);
+      
+      // var love = prompt('你爱我吗？');
+      // while(love != '我爱你'){
+      //    love = prompt('你爱我吗？');
+      // }
+
+      // var i= 1, num = 0;  
+      // do{
+      //   num = num + i;
+      //   console.log('这个人'+i+'岁了');
+      //   i++;
+      // }while(i <= 100)
+      // console.log(num);
+
+      //就是去除个位数为3的值，从1加到100
+        var sum = 0;
+      for (var i = 1; i <= 100; i++) {
+        i = i.toString();
+        if (i.slice(-1) == 3){
+          continue;
+        }
+        i = parseInt(i);
+        sum = sum + i;
+      }
+      console.log(sum);
+        
+      do{
+        var userName = prompt('请输入您的用户名：');
+        var password = prompt('请输入你的密码：');
+      }while(userName != 'admin' && password != '123456')
+      alert('用户名和密码输入成功！！')
+
+      //简易ATM
+      // var num = prompt('请输入您要的操作：\n 1.存钱\n 2.取钱\n 3.显示余额\n 4.退出 ');
+      // num = parseInt(num);
+      // var spaceMoney = 100;
+      // switch(num) {
+      //   case 1: 
+      //     var saveMoney = prompt('请输入您要存的金额：');
+      //     spaceMoney = parseFloat(saveMoney) + spaceMoney;
+      //     alert('现在您的余额有'+ spaceMoney + '元！');
+      //     break;
+      //   case 2:
+      //     var drawMoney = prompt('请输入您要取多少钱:');
+      //     spaceMoney = spaceMoney - parseFloat(drawMoney);
+      //     alert('现在您的余额有'+ spaceMoney + '元！');
+      //     break;
+      //   case 3:
+      //     alert('现在您的余额有'+ spaceMoney + '元！')
+      //     break;
+      //   case 4:
+      //     alert('你已退出！')
+      // }
+
+             // 2.打印出正金字塔 
+          for (var i = 1; i <= 4; ++i) {
+              // 2.我们根据规律知道。需要用for输出多余的空格
+              for (var k = 1; k <= 4 - i; ++k) {
+                  document.write("&ensp; ");
+              }
+              // 1.下面一行是结合2n-1的公式求出每一行的星星数
+              for (var j = 1; j <= 2 * i - 1; ++j) {
+                  document.write("☆");
+              }
+              document.write("<br />");
+          }
+          // 空格大小和星星大小不一致，不是特别金字塔
+          var str = '';
+          for(var i=1; i <= 4; i++){
+            for(var j = 1; j <= 4 - i; j++){
+              str = str + ' '
+            }
+            for(var k=1; k <= 2*i - 1; k++){
+              str = str + '☆';
+            }
+            str = str + '\n'
+          }
+          console.log(str);
+       
+          
+
+</script>
+<body>
+</body>
+</html>

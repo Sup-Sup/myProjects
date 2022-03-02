@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据类型-数字型</title>
+</head>
+<script>
+  // 八进制，在数字以0开头
+  var num = 010 
+  console.log(num);
+  // 十六进制 ，以0x开头，0-9，a-f
+  var num1= 0xaa
+  console.log(num1);
+  
+  /* 数字型的特殊知识点，用的较少   JavaScript中数字型的最大值，最小值，无穷大
+  Infinity,无穷小-Infinity, NaN 是 not a number的缩写 */
+  console.log(Number.MAX_VALUE);
+  console.log(Number.MIN_VALUE);
+  console.log(Number.MAX_VALUE*2);
+  console.log(-Number.MAX_VALUE*2);
+  console.log('hello' - 100);  
+
+  // 判断一个变量是否为数字型 isNaN(x)  若x是数字，返回false，反之，返回true 
+  console.log(isNaN('hello' - 100));  //true
+  console.log(isNaN(100)); //false
+</script>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // splice 插入删改  -- 从自身做起
+    var user = ["lily", "lilei", "jack"];
+    // 插入
+    user.splice(0, 1);
+    console.log(user);
+    // 增
+    user.splice(1, 0 , 'alex')
+    console.log(user);
+    // del
+    user.splice(0, 1 , 'hello', 'world')
+    console.log(user);
+    // replace
+    user.splice(0, 1 , 'hi')
+    console.log(user);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>string</title>
+</head>
+<script>
+  // // indexOf()方法返回在数组中可以找到一个给定元素的第一个索引，
+  // 如果不存在，则返回-1。 arr.indexOf(searchElement[, fromIndex])
+  // var str = '我多想再见你，哪怕匆匆一眼就别离。'
+  // console.log(str.indexOf('匆'));  // 9
+  // console.log(str.indexOf('匆', 10));  // 10
+  // console.log(str.indexOf('它'));  //  -1
+  // 将字符串中所有元素o的位置，打印出来   index = str.indexOf('o', index)
+  // function num(str, element) {
+  // var str = str;
+  // var index = 0;
+  // var arr = [];
+  // while( str.indexOf(element, index) !== -1 ) {
+  //   index = str.indexOf(element, index);
+  //   arr.push(index);
+  //   index++;
+  // }
+  // console.log(arr); 
+  // return arr.length
+  
+  // }
+  // var str = ['red', 'blue', 'red', 'green', 'pink', 'red']
+  // var num1 = num(str, 'red');
+  // console.log('出现的次数是'+ num1);
+
+  // // charAt() 方法从一个字符串中返回指定的字符。  
+  // // 语法：str.charAt(index)   index是一个介于0 和字符串长度减1之间的整数。(0~length-1)
+  // var str = "Brave is a great character";
+  // console.log(str.charAt(0)); // B
+  // console.log(str.charAt(str.length - 1)); // r
+  // console.log(str.charAt(str.length )); //  空 如果指定的 index 值超出了该范围，则返回一个空字符串。
+  
+  // // charCodeAt() 方法返回 0 到 65535 之间的整数，表示给定索引处的 UTF-16 代码单元。
+  // // Unicode 码点（code points）的范围从 0 到 1114111 (0x10FFFF）。
+  // // 开头的 128 个 Unicode 编码单元和 ASCII 字符编码一样，常用于返回ASCII 字符
+  // // 语法：str.charCodeAt(index)  index一个大于等于 0，小于字符串长度的整数。如果不是一个数值，则默认为 0。
+  // console.log("ABC".charCodeAt(0)); // returns 65:"A"
+  // console.log("a".charCodeAt(0)); // returns  97:"a"
+  // console.log("ABC".charCodeAt(1)); // returns 66:"B"
+  // console.log("ABC".charCodeAt(2)); // returns 67:"C"
+  // console.log("ABC".charCodeAt(3)); // returns NaN
+
+  // // str[index]  获取指定位置处的字符
+  // var str = "Brave is a great character";
+  // console.log(str[1]);  // r
+
+  // console.log(null + 1);
+  // // 判断字符串 'abfoaejfoiecojcc'出现字符最多的是，次数是
+  // var str =  'abfoaejfoiecojcc';
+  // var obj = {};
+  // for (var i=0 ; i <= str.length - 1; i++ ) {
+  //   var chars = str.charAt(i);
+  //   if(obj[chars]){    // 此处用 obj.chars做代替会出现问题
+  //     obj[chars]++;
+  //   }else{
+  //     obj[chars] = 1;
+  //   }
+  // }
+  // console.log(obj);
+  // for ( key in obj) {
+  //   // console.log(key);  属性 
+  //   // console.log(obj[key]); 属性值
+  //   var max = 0;
+  //   var nowChar = '';
+  //   if( obj[key] >max) {
+  //     max = obj[key];
+  //     nowChar = key;
+  //   }
+  // }
+  // console.log(nowChar+ '出现的次数最多，为' + max);
+
+  // // substring() substring 提取从 indexStart 到 indexEnd（不包括）之间的字符。
+  // // 语法： str.substring(indexStart[, indexEnd])
+  // var str = 'hello new year';
+  // console.log(str.substring(0,3)); //  hel
+  // console.log(str.substring(3,3)); // 空  如果 indexStart 等于 indexEnd，substring 返回一个空字符串。
+  // console.log(str.substring(3,0)); // hel  如果 indexStart 大于 indexEnd，则 substring 的执行效果就像两个参数调换了一样
+  // console.log(str.substring(3)); // lo new year  如果省略 indexEnd，substring 提取字符一直到字符串末尾。
+  // console.log(str.substring(str.length - 3));  //ear
+  // console.log(str.substring(3, -3)); // hel  如果任一参数小于 0 或为 NaN，则被当作 0。
+  // console.log(str.substring(-3, 3)); // hel
+
+  // // slice() 方法提取某个字符串的一部分，并返回一个新的字符串，且不会改动原字符串。
+  // // 语法： str.slice(beginIndex[, endIndex])  slice() 提取的新字符串包括beginIndex但不包括 endIndex。
+  // var str = 'this weather is a litter brisk';
+  // console.log(str.slice(0, 3));  //  thi
+  // console.log(str.slice(3));  // s weather is a litter brisk
+  // console.log(str.slice(3, -1));  // s weather is a litter bris
+  // console.log(str.slice(-3));  //  isk
+  // console.log(str.slice(-3, -1));  // is
+
+  // // replace() 方法返回一个由替换值（replacement）替换部分或所有的模式（pattern）匹配项后的新字符串。
+  // // 模式可以是一个字符串或者一个正则表达式，替换值可以是一个字符串或者一个每次匹配都要调用的回调函数。
+  // // 如果pattern是字符串，则仅替换第一个匹配项。
+  // // 原字符串不会改变。
+  // // 语法：str.replace(regexp|substr, newSubStr|function)
+  // var str= 'anutaanut';
+  // console.log( str.replace('a', 'b') );  // bnutaanut 只替换第一个字符
+  // var str1= 'abocefjongnojfslaoj';  // 将所有的o替换为&;
+  // var index = 0;
+  // // while(str1.indexOf('o', index) !== -1) {
+  // //   index = str1.indexOf('o', index) + 1;
+  // //   str1 = str1.replace('o', '&');
+  // // }
+  // while ( str1.indexOf('o') !== -1 ) {
+  //   str1 = str1.replace('o', '&')
+  // }
+  // console.log(str1);  //ab&cefj&ngn&jfsla&j
+
+  // // split('分隔符') 将字符串转换为数组 对应的是join，用法类似
+  // // 语法：str.split([separator[, limit]])  
+  // var str = 'hello, hi, ha';
+  // console.log(str.split());  // ["hello, hi, ha"]  直接转换，只有一个元素
+  // console.log(str.split(','));  // ["hello", " hi", " ha"]  按','分割，有三个元素
+  // console.log( str.split(',', 1) );  //  ["hello"]  1是返回1个元素
+  // var str = 'hello&hi&ha';   
+  // console.log(str.split('&'));  //  ["hello", "hi", "ha"]
+  
+  // // toUpperCase() 方法将调用该方法的字符串转为大写形式并返回
+  // // （如果调用该方法的值不是字符串类型会被强制转换）。
+  // // 此方法不会影响原字符串本身的值，因为JavaScript中字符串的值是不可改变的。
+  // var str= 'this is a desk';
+  // console.log(str.toUpperCase());  // THIS IS A DESK
+  // var str1 = 'THIS IS A CHAIR';
+  // console.log(str1.toLowerCase()); // this is a chair
+
+  // // 
+  // var str= 'abaasdfffgggghhhojoooojjfessss333344416';
+  // console.log(str.length);  // 39
+  // console.log(str.charAt(0)); // a
+  // console.log(str.indexOf('c')); // -1 
+  // str = str.replace('g', '22');  
+  // console.log(str);   // abaasdfff22ggghhhojoooojjfessss333344416
+  // str = str.replace('ss', 'b');
+  // console.log(str);  //abaasdfff22ggghhhojoooojjfebss333344416
+  // var newStr = str.substring(1, 6);
+  // console.log(newStr);  // baasd
+  /* 思路：
+    1对象放置不同元素和出现次数  
+      (1) 遍历字符串，添加属性和次数递增
+    2遍历对象，找到最多的 */
+
+  var str= 'abaasdfffgggghhhojoooojjfessss333344416';
+  var obj = {};
+  for (var i=0; i <= str.length - 1 ; i++) {
+    var char = str.charAt(i);
+    if(obj[char]) {  
+      obj[char]++;
+    }else{  // 所有元素第一次都为空，if else走这里
+      obj[char] = 1; 
+    }
+  }
+  console.log(obj);
+
+  var max = 0;
+  var char = '';
+  for ( key in obj) {
+    if(obj[key] > max){
+      max = obj[key];
+      char = key;
+    }
+  }
+  console.log(char + '出现次数最多，次数为'+ max);
+
+</script>
+<body>
+  
+</body>
+</html>
