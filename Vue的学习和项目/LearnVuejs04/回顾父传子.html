@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="hi">
+    <h1>{{message}}</h1>
+    <mycpn :info='message'></mycpn>
+  </div>
+
+  <template id='test'>
+    <div>
+      <h1>{{num}}</h1>
+      <h1>{{info}}</h1>
+    </div>
+  </template>
+
+  <script src="../vue .js"></script>
+  <script>
+    const cpn = {
+      template: '#test',
+      data() {
+        return {
+          num: 1,
+        }
+      },
+      props: {
+        info:{
+          type: String,
+          default() {
+            return {}
+          }
+        }
+      },
+      methods: {
+
+      }
+    }
+    new Vue({
+      el: '#hi',
+      data: {
+        message: 'hi'
+      },
+      computed: {
+
+      },
+      methods: {
+
+      },
+      components: {
+        mycpn:cpn,
+      }
+    }) 
+  </script>
+</body>
+</html>

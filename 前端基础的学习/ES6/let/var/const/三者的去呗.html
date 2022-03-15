@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    三者区别： 变量提升 、 作用域 、 值能不能改
+   -->
+   <script>
+     var num = 10;
+     if(true) {
+      console.log(num);
+      // let num = 20
+      var num = 20
+     }
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // func.apply(thisArg, [argsArray])  第二个参数必须是数组或者伪数组
+    let o = {
+      name: 'andy'
+    }
+    function fn(arr) {
+      console.log(this);
+      console.log(arr);
+    }
+    fn.apply(o, ['pink'])
+
+    var arr = [1, 66, 3 , 99];
+    var arr1 = ['red', 'pink'];
+
+//     /* 找出数组中最大/小的数字 */
+//    var numbers = [5, 6, 2, 3, 7];
+
+//   /* 使用Math.min/Math.max以及apply 函数时的代码 */
+//   var max = Math.max.apply(null, numbers); /* 基本等同于 Math.max(numbers[0], ...) 或 Math.max(5, 6, ..) */
+    // var max = Math.max.apply(null, arr);
+    var max = Math.max.apply(Math, arr);
+    var min = Math.min.apply(Math, arr);
+    console.log(Math.max(...[1323,12,12155,0,1]));
+    console.log(max, min);
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 取反符 [^]
+    var reg5 = /^[^a-zA-Z0-9]$/;
+    console.log(reg5.test('B'));
+    console.log(reg5.test(5));
+    console.log(reg5.test(555));
+    console.log(reg5.test('&'));
+    console.log('----------------');
+    // 范围符 [-]
+    var reg4 = /^[a-zA-Z]$/;
+    console.log(reg4.test('a'));
+    console.log(reg4.test('B'));
+    console.log(reg4.test('abjcn'));
+    console.log(reg4.test('aB'));
+    console.log('--------------');
+
+    /* 三者中的一个 */
+    var reg3 = new RegExp(/^[abc]$/)
+    console.log(reg3.test('abc'));
+    console.log(reg3.test('a'));
+    console.log(reg3.test('b'));
+    console.log(reg3.test('ba'));
+    console.log('--------');
+    // 匹配其中一个即可
+    var reg2 = new RegExp(/[abc]/)
+    console.log(reg2.test('abcd'));
+    console.log(reg2.test('eag'));
+    console.log(reg2.test('efg'));
+    console.log('----------');
+
+    var rg = /abc/;
+    console.log(rg.test('ab'));
+    console.log(rg.test('abc'));
+    console.log('------------');
+
+    let reg = /^abc/;
+    console.log(reg.test('abc'));
+    console.log(reg.test('abcd'));
+    console.log(reg.test('abd'));
+    console.log('------------');
+
+    let reg1 = /^abcd$/
+    console.log(reg1.test('abcd'));
+    console.log(reg1.test('abcde'));
+    console.log(reg1.test('abc'));
+  </script>
+</body>
+</html>

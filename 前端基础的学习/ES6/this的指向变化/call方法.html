@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fn(x,y) {
+      console.log('hello');
+      console.log(this);
+      console.log(x+ y);
+    }
+    var o= {
+      name: 'andy'
+    }
+    // fn();
+    // fn.call(o);  // 第二行的结果就是这个对象 o 
+    fn.call(o, 1, 2)
+  </script>
+    <script>
+      // 借用父构造函数继承属性
+    function Father(uname, age) {
+      this.uname = uname;
+      this.age = age;
+    }
+    function Son(uname, age, score) {
+      // this指向实例化的对象
+      Father.call(this, uname, age);
+      console.log(this);
+      this.score = score;
+    }
+    var son = new Son('刘德华', 19, 100);
+    console.log(son);
+  </script>
+</body>
+</html>

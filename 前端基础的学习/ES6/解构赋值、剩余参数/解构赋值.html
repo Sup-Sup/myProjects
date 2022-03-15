@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 数组解构
+    let arr = [123,12,1];
+    let [a, b, c, d, e] = arr;
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(d);  // undefined
+    console.log(e);
+    console.log('---------');
+
+    // 对象解构
+    let obj = {
+      name: 'andy',
+      age: 11
+    }
+    let {name, age} = obj;  // 左边的变量名要和obj中的变量名同
+    console.log(name);
+    console.log(age);
+    let {name: myName} = obj;
+    console.log(myName);
+  </script>
+</body>
+</html>

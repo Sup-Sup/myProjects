@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>122</li>
+    <li>hello</li>
+    <li>world</li>
+  </ul>
+  <script>
+    var ul = document.querySelector('ul'); 
+    ul.addEventListener('click', function(e) {
+      console.log(e);
+
+      console.log(e.target);
+      console.log(e.type);
+
+      console.log(this);  //  this 约等于 e.currentTarget
+      console.log(e.currentTarget);
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .box1 {
+    width: 0px;
+    height: 0;
+    border-top: 20px solid red;
+    border-bottom: 20px solid green;
+    border-left: 20px solid yellow;
+    border-right: 20px solid whitesmoke;
+    margin: auto;
+  }
+  /* 需要一个向左的三角形 */
+  .box2 {
+    width: 0;
+    height: 0;
+    border: 30px solid transparent;
+    border-right:30px solid  red;  
+  }
+  .xiaomi {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background-color: blue;
+    margin:auto
+  }
+  .three {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    margin-top: -20px;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-left:20px solid tomato ;
+  }
+
+</style>
+<body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="xiaomi">
+    <span class="three"></span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="hi">
+    <h1>{{message}}</h1>
+    <cpn @cpn-thing='usething' @subthing='usething'></cpn>
+    <h1>{{total}}</h1>
+  </div>
+  <template id="test">
+    <div>
+
+      <div>
+        {{counter}}
+        <button @click='add'> +</button>
+      </div>
+      <div>
+        {{aa}}
+        <button @click='sub'>-</button>
+      </div>
+       
+    </div>
+  </template>
+  <script src="../vue .js"></script>
+  <script>
+    const cpn = {
+      template: '#test',
+      data() {
+        return {
+          counter: 0,
+          aa: 0,
+        }
+      },
+      methods: {
+        add() {
+          this.counter++
+          this.$emit('cpn-thing',this.counter)
+        },
+        sub() {
+          this.aa--
+          this.$emit('subthing', this.aa)
+        },
+        
+      }
+    }
+    new Vue({
+      el:'#hi',
+      data: {
+        message: 'hello',
+        total: 0,
+      },
+      methods: {
+
+      },
+      components: {
+        cpn
+      },
+      methods: {
+        usething(counter) {
+          console.log(counter);
+          this.total = counter;
+        },
+      } 
+    })
+  </script>
+</body>
+</html>

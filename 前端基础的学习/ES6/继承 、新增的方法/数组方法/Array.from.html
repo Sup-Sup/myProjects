@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arrayLike = {
+      '0': 'a',
+      '1': 'b',
+      '2': 'c',
+      length: 3
+    };
+    let arr = Array.from(arrayLike)
+    console.log(arr);  // ['a', 'b', 'c']
+    let arr1 = Array.prototype.slice.call(arrayLike,0)
+    // Array.prototype.slice.apply(arrayLike, [0])
+    console.log(arr1);
+    console.log('------------');
+
+    // 可以有第二个参数（函数），类似map方法
+    let arr2 = Array.from(arrayLike, item => item + ' hh')
+    console.log(arr2);
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let name = '李磊';
+    let text = `这是模板字符串,拼接一个 ${name}`;
+    console.log(text);
+    console.log('---------');
+
+
+    let result = {
+      name: 'lily',
+      age: 15
+    }
+    let html = `
+      <div>
+        <span>${result.name}</span>
+        <span>${result.age}</span>
+      </div>
+    `
+    console.log(html);
+    console.log('------------');
+
+    let fn = () => {
+      return `我是fn`
+    }
+    html = `可以在模板字符串中使用函数，${fn()}`
+    console.log(html);
+  </script>
+</body>
+</html>

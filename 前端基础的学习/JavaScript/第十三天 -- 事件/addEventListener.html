@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <button>1</button>
+    <button>2</button>
+  </div>
+  <script>
+    var btns = document.querySelectorAll('button');
+    btns[0].onclick = function() {
+      alert('11')  // 这个结果会被覆盖掉
+    }
+    btns[0].onclick = function() {
+      alert('2222')
+    }
+    btns[1].addEventListener('click', function() {
+      alert('333')
+    })
+    btns[1].addEventListener('click', function() {
+      alert('444')
+    })
+    // 现在基本不用下方的了
+    btns[1].attachEvent('onclick', function() {
+      alert('555')
+    })
+
+
+    
+  </script>
+</body>
+</html>

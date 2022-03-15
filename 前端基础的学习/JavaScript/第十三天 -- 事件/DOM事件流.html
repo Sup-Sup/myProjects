@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .father {
+    width: 360px;
+    height: 360px;
+    background-color: blanchedalmond;
+    margin: auto;
+
+  }
+  .son {
+    width: 150px;
+    height: 150px;
+    background-color: coral;
+    margin: auto;
+  }
+</style>
+<body>
+  <div class="father">
+    <div class="son"></div>
+  </div>
+  <script>
+    var father = document.querySelector('.father');
+    var son = document.querySelector('.son')
+    son.addEventListener('click', function(e) {
+      alert('son')
+      e.stopPropagation()
+    } , false)  // 第三个属性为true，捕获阶段(外到内) ，反之
+    father.addEventListener('click', function() {
+      alert('father')
+    } , false)
+    document.addEventListener('click', function() {
+      alert('document')
+    } , false)
+  </script>
+</body>
+</html>

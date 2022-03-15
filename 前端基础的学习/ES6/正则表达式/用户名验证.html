@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <script>
+    var reg = /^[a-zA-Z0-9-_]{3,12}$/
+    console.log(reg.test('a'));
+    console.log(reg.test('aaa'));
+    console.log(reg.test('andy-'));
+    console.log(reg.test('andy-123'));
+    console.log(reg.test('!abn'));
+    console.log('-----------');
+
+    var reg= /^abc{3}$/;  // abccc
+    console.log(reg.test('abc'));
+    console.log(reg.test('abccc')); 
+    console.log(reg.test('abcabcabc'));
+    console.log('-----------');
+
+    var reg = /^(abc){3}$/; // abcabcabc
+    console.log(reg.test('abc'));
+    console.log(reg.test('abcabcabc'));
+    console.log(reg.test('abccc'));
+    console.log('----------');
+  </script>
+</body>
+</html>

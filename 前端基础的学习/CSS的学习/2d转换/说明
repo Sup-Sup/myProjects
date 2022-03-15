@@ -1,0 +1,5 @@
+ // 说明
+ transform： rotate(deg)  /  scale(多少倍大小)  /  translate(位移)   
+ transform-origin: left bottom; 
+
+ display: block; --- transform对于行内元素无效，要将行内元素进行转换

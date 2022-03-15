@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  img {
+    width: 50%;
+  }
+</style>
+<body>
+  <div><img src="../img/arrow.png" alt=""></div>
+  <script>
+    // 箭头函数中的this指向的是，外一层的this
+    const obj = {name: '张三'};
+    function fn() {
+      console.log(this);
+      return () => {
+        console.log(this);
+      }
+    }
+    const resFn = fn.call(obj);  // 改变了this指向，指向了obj
+    resFn();
+    console.log('----------');
+
+    // 面试题
+    let obj1 = {
+      age: 10,
+      say: () => {
+        console.log(this); // window
+        console.log(this.age);
+      }
+    }
+    obj1.say();
+    console.log('----------');
+  </script>
+</body>
+</html>

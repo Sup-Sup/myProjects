@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+    1,自定义函数（命名函数） function fn()
+    2,函数表达式（匿名函数） var fun = function() {}
+    3,用new Function('参数1', '参数2', '函数体')  -- 较少使用
+
+     */
+     var fn = new Function('a', 'b', 'console.log(a + b)')
+     fn(2,3)
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div><img src="../img/feibo.png" alt=""></div>
+  <script>
+    /* 
+    f(3) = f(2) + f(1)
+     */
+    function fn(n) {
+      if(n == 2 || n == 1) {
+        return  1
+      } 
+      return  fn(n -1) + fn(n - 2);
+    }
+    console.log(fn(3));
+    console.log(fn(4));
+    console.log(fn(6));
+  </script>
+</body>
+</html>

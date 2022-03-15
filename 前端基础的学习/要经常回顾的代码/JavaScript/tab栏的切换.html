@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  li{
+    display: none;
+    list-style: none;
+  }
+  .tab {
+    width: 220px;
+  }
+  .current {
+    background-color: red;
+  }
+  .currentLi {
+    display: block;
+  }
+</style>
+<body>
+  <div class="tab">
+    <span class="current">好</span>
+    <span>嘿嘿</span>
+    <span>哈哈哈</span>
+    <span>呵呵呵呵</span>
+  </div>
+  <div>
+    <ul>
+      <li class="currentLi">好的队形</li>
+      <li>嘿嘿的队形</li>
+      <li>哈哈哈的队形</li>
+      <li>呵呵呵呵的队形</li>
+    </ul>
+  </div>
+  <script>
+    let tabs = document.querySelector('.tab').querySelectorAll('span');
+    let lis = document.querySelectorAll('li');
+    // 对tab设置对应的data-index
+    // 监听所有这个tab的点击
+    for( let i= 0; i< tabs.length; i++ ){
+      tabs[i].style.backgroundColor = ''
+      tabs[i].setAttribute('data-index',i);
+      tabs[i].onclick = function() {
+
+        // 使被点击的模块独一无二
+        for(let i = 0; i<tabs.length; i++) {
+          tabs[i].className = ''
+        }
+        this.className = 'current';
+
+        // 使li独一无二
+        let index = this.getAttribute('data-index');
+        for(let i = 0; i<lis.length; i++) {
+          lis[i].className = ''
+        }
+        lis[index].className = 'currentLi';
+      }
+
+    }
+  </script>
+</body>
+</html>

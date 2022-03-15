@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+  </div>
+  <script>
+    // function.bind(thisArg[, arg1[, arg2[, ...]]])
+    var o = {
+      name: 'andy'
+    }
+
+    function fn(a , b) {
+      console.log(this);
+      console.log(a + b);
+    }
+    var f = fn.bind(o, 1, 4);
+    f();
+
+    var div = document.querySelector('div');
+    console.log(div.children);
+    for(let i = 0; i<div.children.length ; i++) {
+      div.children[i].onclick = function () {
+        this.disabled = true;
+        // var that = this
+        setTimeout(function (){
+          // that.disabled = false;
+          this.disabled = false;
+        }.bind(this), 2000)
+      }
+    }
+  </script>
+</body>
+</html>

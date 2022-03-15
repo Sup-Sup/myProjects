@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+    原来es5的构造函数，对公共属性的使用，会浪费大量空间
+    公共属性放置在构造函数里边，公共方法放置在原型对象上
+
+    ldh.__proto__ === Star.prototype 每个对象身上都会有一个__proto__，会指向构造函数的原型对象
+    
+     */
+    function Star(uname, age) {
+      this.uname = uname;
+      this.age = age;
+/*       this.sing = function () {
+        console.log('hhh');
+      } */
+    }
+
+    Star.prototype.sing = function () {
+      console.log('哈哈哈');
+    }
+
+    // 构造函数进行了赋值操作，所以需要重新指定constructor
+    Star.prototype = {
+      constructor: Star,
+      movies: function() {
+        console.log('电影真好看哇');
+      }
+    }
+
+    var ldh = new Star('刘德华', 18)
+    var cyx = new Star('陈奕迅', 19)
+    console.dir(Star);
+    console.log(ldh.sing === cyx.sing);  
+    console.log(ldh.__proto__ === Star.prototype);
+    console.log(Star.prototype);
+    console.log(ldh.__proto__);
+    console.log(Star.prototype.constructor);
+    console.log(ldh.__proto__.constructor);
+  </script>
+</body>
+</html>

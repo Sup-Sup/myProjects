@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    position: relative;
+    height: 20px;
+    width: 200px;
+    border: 1px solid black;
+  }
+  div::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    transform: rotate(45deg);
+    transition: all .3s;
+  }
+  /* 鼠标经过后旋转 */
+  div:hover::after {
+    transform: rotate(-135deg);
+  }
+
+</style>
+<body>
+  <div></div>
+</body>
+</html>

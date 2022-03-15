@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<!--   <script>
+    class Father {
+      constructor() {
+
+      }
+      say() {
+        console.log('hi');
+      }
+    }
+
+    class Son extends Father {
+    }
+    let zcq = new Son();
+    zcq.say();
+  </script> -->
+  <script>
+    /* 
+    super可以使用父级的构造函数和普通函数
+    使用super相当于将这两个实参1,3给父级的constructor
+    继承中，方法和属性的使用： 就近原则
+     */
+    class Father {
+      constructor(num1, num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+      }
+      sum() {
+        console.log(this.num1 + this.num2);
+      }
+      call() {
+        return '165516'
+      }
+    }
+
+    class Son extends Father {
+      constructor(num1, num2) {
+        super(num1, num2);
+        this.num1 = num1;
+        this.num2 = num2;
+      }
+      call() {
+        console.log('调用普通函数时 ' +  super.call() + super.num1); 
+      }
+      sub() {
+        console.log(this.num1 - this.num2);
+      }
+    }
+    let zcq = new Son(1, 3);
+    zcq.sum();
+    zcq.call();  // 观察这个结果，
+    zcq.sub();
+  </script>
+</body>
+</html>

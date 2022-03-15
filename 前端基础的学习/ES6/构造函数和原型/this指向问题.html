@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>annn</button>
+  <script>
+    var that;
+    var _that;
+    class Star {
+      constructor(uname, age) {
+        // 这也是new的作用之一，这里的this指向的是被实例化的对象
+        that= this;
+        console.log(this);
+
+        this.uname = uname;
+        this.age = age;
+        this.btn = document.querySelector('button');
+        // 下面这行代码，稍微感受一下子
+        this.btn.onclick = this.sing;
+      }
+      sing() {
+        // this指向调用者，button
+        console.log(this);
+        console.log(that.uname);
+      }
+      dance() {
+        //  ldh调用了这个函数，这个this是指向实例对象ldh
+        _that = this;
+        console.log(this);
+      }
+    }
+    var ldh  = new Star ('刘德华', 33);
+    console.log(that === ldh);
+    ldh.dance();
+    console.log(_that === ldh);
+  </script>
+</body>
+</html>

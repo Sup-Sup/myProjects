@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div><img src="../img/num.png" alt=""></div>
+  <script>
+    /* 
+    *代表出现 >=0次
+     */
+    var reg = /^a*$/;
+    console.log(reg.test(''));
+    console.log(reg.test('a'));
+    console.log(reg.test('aaa'));
+    console.log(reg.test('aban'));
+    console.log('-------------');
+
+    // + 出现>=1次
+    var reg= /^a+$/;
+    console.log(reg.test(''));
+    console.log(reg.test('a'));
+    console.log(reg.test('ab'));
+    console.log(reg.test('aaa'));
+    console.log('--------------');
+    // {3,} 出现>=3次   {3} 出现3次
+    var reg = /^a{3,}$/;
+    console.log(reg.test('aaaaa'));
+    console.log(reg.test('aaa'));
+    console.log(reg.test('aa'));
+    console.log('----------');
+
+    // {3, 8}出现 3 < 次数 < 8
+    var reg = /^a{3,8}$/;
+    console.log(reg.test(''));
+    console.log(reg.test('aaa'));
+    console.log(reg.test('aaaaa'));
+    console.log(reg.test('aaaaaaaa'));
+    console.log(reg.test('aaaaaaaaa'));
+  </script>
+</body>
+</html>

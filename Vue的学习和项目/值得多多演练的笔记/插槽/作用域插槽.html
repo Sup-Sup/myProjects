@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id='app'>
+    <h2>{{message}}</h2>
+    <!-- 定义这个属性接受子组件的参数 -->
+    <cpn v-slot:default='slotProps'>
+        {{slotProps.aa[0]}}
+    </cpn>
+  </div>
+  
+  <template id="hi">
+    <div>
+      <h1>{{movies}}</h1>
+      <!-- :随便的名字='属性' -->
+      <slot :aa='movies'>
+        {{movies}}
+      </slot>
+    </div>
+  </template>
+  <script src='../vue .js'></script> 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message:'你好哇'
+      },
+      computed: {
+  
+  
+      },
+      methods: {
+   
+      },
+      components: {
+        cpn: {
+          template: '#hi',
+          data() {
+            return {
+            message: 'hi',
+            movies: ['hhh','dieofj','dhowjgo']
+          }
+        }
+        }
+      }
+    })     
+   
+  </script>
+</body>
+</html>

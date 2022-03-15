@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <img src="../img/thinking.png" alt="">
+  </div>
+  <script>
+    // 上图是思考题
+    // 下题是闭包的一种使用,没用到闭包的思想哈，下例
+    // 打车起步价 13元 (3公里内)，每多一公里增5元，输入公里数，可计算打车价格
+    // 若遇到堵车，加10元
+    function useCar(flag, n){
+      var start = 13;
+      var totalPrice = 0;
+      if(flag) {
+        return totalPrice = start + 10 + (n-3)*5
+      }else {
+        return totalPrice = start + (n-3)*5
+      }
+    }
+
+    var total = useCar(true, 5)
+    console.log(total);
+  </script>
+</body>
+</html>

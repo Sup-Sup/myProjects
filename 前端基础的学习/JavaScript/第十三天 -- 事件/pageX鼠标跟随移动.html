@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  img {
+    position: absolute;
+    height: 360px;
+    cursor: pointer;
+  }
+  img:hover {
+    transform: translate(-50%, -50%);
+  }
+</style>
+<body>
+  <img src="../../CSS的学习/img/微信图片_20220102191721.jpg" alt="">
+  <script>
+    var img = document.querySelector('img')
+    img.addEventListener('mousemove', function(e) {
+      let x = e.pageX;
+      let y = e.pageY;
+      // console.log(x, y);
+      this.style.top = y + 'px';
+      this.style.left = x + 'px'
+    })
+  </script>
+</body>
+</html>

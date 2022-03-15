@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn>
+      <h1>我是被替换的内容</h1>
+    </cpn>
+  </div>
+
+  <template id='hi'>
+    <div>
+      <h1>---------</h1>
+      <p>正常显示的内容</p>
+      <slot>
+        <div>如果没有替换，就显示这个默认的东东</div>
+        <button>annnnnnnn</button>
+        <div>---</div>
+      </slot>
+    </div>
+  </template>
+  <script src="../vue .js"></script>
+  <script>
+    
+    new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      components: {
+        cpn: {
+          template: '#hi'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

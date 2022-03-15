@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!-- 
+    1.不带参数的，你绑定事件时，加不加括号都一样的效果
+    2.方法带形参的 
+      （1） 不带括号，直接将浏览器的形参传给方法中的形参
+      （2） 带括号的，括号内不绑定参数的，返回undefined //
+            带括号，括号内绑定对应参数，如$event,将浏览器的参数赋值方法的形参
+   -->
+  <div id="app">
+    <h2 >{{message}}</h2>
+    <!-- 注意看下面几个的不同：按钮1是不带参的
+    按钮2 是带参的 -->
+    <button @click="btn1click()">按钮1</button>
+    <button @click="btn1click">按钮1</button>
+
+    
+
+    <!-- 事件定义时，写方法省略了小括号，但方法是带参的，那么Vue就会默认
+      将浏览器产生 的event事件对象作为参数传入到方法中 -->
+    <button @click="btn2click">按钮2</button>
+    <button @click="btn2click()">按钮2</button>
+    <button @click="btn2click($event)">按钮2</button>
+
+    <!-- 当需要event事件时，可以通过 $event 来传入事件 -->
+    <button @click="btn3click(123,$event)">按钮3</button>
+  </div>
+
+  <script src="../../vue .js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        message:'中午好'
+      },
+      methods: {
+        btn1click(){
+          console.log('执行成功');
+          
+        },
+        // 如果函数需要参数，但是调用的时候，没有传入参数，那么函数的形参为undefined
+        btn2click(event){
+          console.log(event);  
+        },
+        btn3click(abc,event){
+          console.log(abc,'++++++',event);
+          
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>

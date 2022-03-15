@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    forEach() / filter() / some() / map () / every()  / find() / includes() / findIndex()
+     */
+    // forEach() 不会终止迭代，除非出错了，return和break不起作用
+    var arr = [1, 2, 3];
+    var sum = 0;
+    arr.forEach(function(val, ind , self) {
+      console.log('arr[' +ind+'] = '+val , self);
+    })
+
+  </script>
+
+  <script>
+    // filter过滤元素，filter也不会终止迭代
+    var arr = [123, 12 , 156];
+    var newArr = arr.filter(function (val, ind , ar){
+      return val > 13
+    })
+    console.log(newArr);
+    let newArr1 = arr.filter(function (val, ind) {
+      return val % 2 === 0
+    })
+    console.log(newArr1);
+  </script>
+
+  <script>
+    // some方法的作用比indexof要大一些 ，查找元素
+    var arr = [30, 20 , 15];
+    var flag = arr.some(val => val>20);
+    console.log(flag);
+  </script>
+
+  <script>
+    // map() 与forEach方法相似，但是forEach不用写return代码
+    // 返回一个新数组，其结果是该数组中的每个元素，是调用一次提供的函数后的返回值
+    var arr = [1, 2 ,3]
+    var newArr = arr.map(function(val , ind){
+      return ind + '----, '+ val*val 
+    })
+    console.log(newArr );
+  </script>
+  <script>
+    //  every() 检测所有元素的情况。返回一个布尔值
+    var arr = [12, 13, 14 ]
+    // var flag = arr.every(function(val) {
+    //   return val > 11
+    // })
+    var flag = arr.every(val => val > 11)
+    console.log(flag);
+    console.log('----------');
+      
+    // find() 找到那个元素就返回该值，否则undefined ； 检查所有元素
+    let array1 = [5, 12, 8, 130, 44];
+    let found = array1.find(element => element > 10);
+    console.log(found); 
+    console.log('-------');
+
+    // findIndex() 找到那个元素返回下标值，否则返回-1； 查询所有元素
+    let found1 = array1.findIndex(ele => ele > 129)
+    console.log(found1);  // 3
+    console.log('---------');
+
+    // arr.includes(valueToFind[, fromIndex])  
+    // includes() 判断一个数组是否包含一个指定的值，包含则返回 true，否则返回 false。
+    let inc = array1.includes(5);
+    console.log(inc);
+    console.log(array1.includes(1));
+    console.log('-----------');
+  </script>
+</body>
+</html>
