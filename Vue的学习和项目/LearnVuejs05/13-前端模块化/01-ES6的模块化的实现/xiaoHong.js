@@ -26,6 +26,7 @@ addr('晚上好');
 
 
 // 导入的变量较多时，使用一下的导入方式 aaa是取得名字,将aaa.js文件中的export的内容都导入进来
+// 导入后边的from最好是将它写完整，比较好识别
 import * as bbb from "./aaa.js"
 console.log(bbb.height);
 console.log(bbb.flag);

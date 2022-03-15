@@ -34,7 +34,7 @@
 
 <script>
 import TarBar from "components/tarbar/TarBar";
-import TarBarItem from "./tarbar/TarBarItem";
+import TarBarItem from "../tarbar/TarBarItem";
 export default {
   name: "MainTabBar",
   components: {

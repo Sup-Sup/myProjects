@@ -6,7 +6,7 @@
 
 <script>
 
-import MainTarBar from './components/MainTabBar'
+import MainTarBar from './components/mainTabBar/MainTabBar'
 export default {
   name: "App",
   components: {

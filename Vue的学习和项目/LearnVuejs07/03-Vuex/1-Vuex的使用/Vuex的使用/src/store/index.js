@@ -54,6 +54,13 @@ const store = new Vuex.Store({
     },
      incrementCounter(state,count){
       state.counter += count
+    },
+    changeInfo(state){
+      //  state.info.name = 'lilei'
+      // state.info['address'] = "费城"  不是响应 式的
+      // Vue.set(state.info,'address','费城')  // 响应式
+      // delete state.info.age // 不是响应式的
+      Vue.delete(state.info,'age') //响应式的
     }
   },
   actions: {
@@ -84,13 +91,7 @@ const store = new Vuex.Store({
         return state.students.filter( s => s.height > height)
       }
     },
-    changeInfo(state){
-      //  state.info.name = 'lilei'
-      // state.info['address'] = "费城"  不是响应 式的
-      // Vue.set(state.info,'address','费城')  // 响应式
-      // delete state.info.age // 不是响应式的
-      Vue.delete(state.info,'age') //响应式的
-    }
+
   },
   modules: {
     // 模块化

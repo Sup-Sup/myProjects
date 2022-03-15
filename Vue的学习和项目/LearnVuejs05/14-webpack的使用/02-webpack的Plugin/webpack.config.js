@@ -4,9 +4,9 @@ const { userInfo } = require('os')
 module.exports = {
   entry:'./src/main.js',
   output:{
-    path:path.resolve(__dirname,'dist'),
+    // 当前目录下的dist文件夹
+    path:path.resolve(__dirname,'dist'),  
     filename: 'bundle.js',
-    // all thing that relate to picture url ,which  is going to add 'dist/'
     publicPath:'dist/'
   },
   module: {

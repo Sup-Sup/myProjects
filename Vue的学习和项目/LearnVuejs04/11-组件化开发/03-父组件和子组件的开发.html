@@ -11,6 +11,7 @@
     <mycpn2></mycpn2>
     <!-- 直接用，用不了，子组件必须是全局组件那里注册或者局部那里注册，才能直接被渲染出来，
       而在父组件里，不能直接使用，必须在前两个方法中注册好 -->
+    <div>------------------------------</div>
     <mycpn1></mycpn1>  
   </div>
   
@@ -23,21 +24,21 @@
     const cpn1 = Vue.extend({
       template:`
       <div>
-        <h1>我等会想休息一下</h1>
+        <h1>我等会想休息一下 cpn1</h1>
         <p>那就小睡一小会</p>
         <p>可以的</p>
       </div>
       `
     })
-    // 创建组件2（父组件）
+    // Vue.component('mycpn1',cpn1)
+    //2.创建组件2（父组件）
     const cpn2 = Vue.extend({
       template:`
       <div>
-        <h1>我等会想休息一下  222222222</h1>
+        <h1>我等会想休息一下 cpn2 </h1>
         <p>那就小睡一小会</p>
         <p>可以的</p>
-        <mycpn1></mycpn1>
-        
+        <mycpn1></mycpn1>  
       </div>`,
 
       // 在上面的代码中，是DOM中有<mycpn2></mycpn2>时，会将mycpn1解析出来，类似抽成div /div的形式，而后

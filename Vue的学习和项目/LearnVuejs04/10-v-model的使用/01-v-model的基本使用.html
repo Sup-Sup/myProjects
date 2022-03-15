@@ -16,7 +16,7 @@ v-model原理：实际上是一个语法糖 -- 两个：
     <!-- v-model="属性"  能够实现双向绑定，就是说这里的message发生变化，data中的message也变化
     不再是单单响应式那样，data中的message变，视图层的变-->
     <input type="text" v-model="message">
-    <!-- <input type="text" :value="message" @input="changeMessage"> -->
+    <!-- <input type="text" :value="message" @input="changeMessage($event)"> -->
     <!-- input 中有一个input事件 -- 监听用户输入的东西 -->
     <h2>{{message}}</h2>
   </div>
@@ -33,11 +33,11 @@ v-model原理：实际上是一个语法糖 -- 两个：
   
       },
       methods: {
-        // changeMessage(event){
-        //   // 把input这一行代码拿到，然后在拿input的value值
-        //   console.log(event.target);
-        //   this.message = event.target.value
-        // }
+        changeMessage(event){
+/*           // 把input这一行代码拿到，然后在拿input的value值
+          console.log(event.target);
+          this.message = event.target.value */
+        }
       }
     })     
    

@@ -9,12 +9,10 @@
   
   <div id='app'>
     <!-- <h2>{{message}}</h2> -->
-    <!-- 使用组件 -->
     <!-- 使用驼峰命名时，得用下边的写法 -->
     <cpn1 :c-info="info" :c-message="message"></cpn1>
   </div>
 
-  <!-- 组件的template的分离 -->
   <template id="cpn">
     <div>
       <ol>
@@ -29,7 +27,6 @@
   
   <script src='./vue .js'></script> 
   <script>
-
     // 定义一个组件
     const cpn1 = {
       template: '#cpn',

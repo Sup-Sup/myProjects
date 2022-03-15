@@ -10,7 +10,7 @@
   <div id='app'>
     <h2>{{message}}</h2>
     <cpn1 :cpnnum1="num1" :cpnnum2="num2" 
-    @num1change="num1change" @num2change="num2change"></cpn1>  
+    @num1change="forcpnnum1change" @num2change="num2change"></cpn1>  
   </div>
 
   <template id="cpn">
@@ -33,10 +33,6 @@
   <script>
     const cpn1 = {
       template:'#cpn',
-      data(){
-          return {
-          }
-        },
       props:{
         cpnnum1: {
           type: Number,
@@ -87,8 +83,7 @@
   
       },
       methods: {
-        num1change(value){
-
+        forcpnnum1change(value){
           // 类型转换
           value = parseFloat(value);
           this.num1 = value;

@@ -15,7 +15,7 @@ export{
   sum
 }
 
-// 2.导出方式二
+// 2.导出方式二es6的写法；
 
 export let age = 18;
 export let height = 188;

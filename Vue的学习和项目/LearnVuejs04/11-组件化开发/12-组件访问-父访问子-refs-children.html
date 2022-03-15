@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+<!-- 
+  $refs - 默认是空对象（对象类型） 要在HTML元素中加内容 ref="aaa"
+  一般使用这个，不使用$children，因为可以一一对应
+ -->
 <body>
   
   <div id='app'>
@@ -55,15 +59,15 @@
         btnClick(){
 
           // 1.$children 的使用
-          // console.log(this.$children[0].message);
+          console.log(this.$children[0].message);
 
-          // // 此时便拿到了子组件里的方法
-          // this.$children[0].showMessage();
+          // 此时便拿到了子组件里的方法
+          this.$children[0].showMessage();
 
           // console.log('此时拿到子组件的方法了');
 
-          // 2.$refs - 默认是空对象（对象类型） 要在HTML元素中加内容 ref="aaa"
-          // console.log(this.$refs.aaa.message);
+          // 2.$refs - 默认是空对象（对象类型） 要在HTML元素中加内容 ref="aaa",一般使用这个，不使用$children，因为可以一一对应
+          console.log(this.$refs.aaa.message);
         }
       }
     })     

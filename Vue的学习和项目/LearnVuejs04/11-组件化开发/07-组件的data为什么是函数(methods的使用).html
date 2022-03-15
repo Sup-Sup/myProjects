@@ -12,14 +12,12 @@
   
   <div id='app'>
     <h2>{{message}}</h2>
-    <!-- 引用组件mycpn -->
     <mycpn></mycpn>
-    
     <mycpn></mycpn>
     <mycpn></mycpn>
     <!-- 这三个东东，点击一个按钮时，数据counter会不会全发生变化？
     不会，是因为组件中的data是函数，它是由作用域的
-  这会带来什么好处呢？ 每个的东东都是独立的，其他地方引用这个，不会受到其他操作的影响 -->
+  这会带来什么好处呢？ 每个的东东都是独立的，其他地方引用这个(组件的复用)，不会受到其他操作的影响 -->
   </div>
   
   <!-- 将组件模板放在下边 -->
@@ -29,7 +27,6 @@
       <h1>现在的数据是：{{counter}}</h1>
       <button @click="increment">+</button>
       <button @click="decrement">-</button>
-
     </div>
   </template>
 

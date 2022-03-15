@@ -19,7 +19,7 @@ export default {
   },
   data(){
     return {
-      // isActive: true,
+      isActive: true,
     }
   },
   computed: {
@@ -45,7 +45,6 @@ export default {
   flex: 1;
   text-align: center;
   font-size: 10px;
-    /* vertical-align: middle; */
 }
 .tarbar-item img{
   margin-top: 5px;
@@ -53,5 +52,4 @@ export default {
   height: 20px;
   margin-bottom: 3px;
 }
-
 </style>
