@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+  }
+</style>
+<body>
+  <div></div>
+  <script>
+    var div = document.querySelector('div');
+    window.addEventListener('resize', function() {
+      console.log('此时页面宽度',window.innerWidth);
+      if(window.innerWidth <= 600) {
+        div.style.display = 'none';
+      }else {
+        div.style.display = 'block';
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    适用于： 某一次需求需要发送两次请求才能完成
+    Promise.all([]) -- 放数组
+   -->
+
+  <script>
+    Promise.all([
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({ name: 'chaoqi', age: 18 })
+        }, 2000)
+      }),
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({ name: "lily", age: 19 })
+        }, 1000)
+      })
+    ]).then(results => {
+      console.log(results);
+    })
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="d1">hello world</div>
+  <input type="text" id="t" />
+  <ul id="list">
+      文本
+      <li>list1</li>
+      <li>list2</li>
+      <li>list3</li>
+    <script>
+
+      var div1 = document.getElementById("d1");
+      var text_field = document.getElementById("t");
+
+      text_field.value = div1.nodeName;
+
+      var list = document.getElementById("list");
+      console.log(list.childNodes[0].nextSibling);
+
+    </script>
+</body>
+
+</html>

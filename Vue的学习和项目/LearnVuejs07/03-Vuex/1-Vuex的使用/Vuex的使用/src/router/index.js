@@ -6,12 +6,13 @@ Vue.use(Router)
 
 const routes = [
   {
-    path:'test',
+    path:'/test',
     component: () => import ('../components/Test')
   }]
 
 new Router({
   routes,
+  mode: history,
 })
 
 export default Router

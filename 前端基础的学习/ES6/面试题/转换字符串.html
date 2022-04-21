@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // ["B3","D2","F1","A9","D12","A2","C1","Z0","B1"]
+    // 排序问题： for循环  、 reverse() /sort() 
+    let arr = ["B3", "D2", "F1", "A9", "D12", "A2", "C1", "Z0", "B1"];
+    function strReverse(arr) {
+      let newArr = [];
+      for (let i = 0; i < arr.length; i++) {  // 取出元素
+        let ch = ''
+        for (let j = 0; j < arr[i].length; j++) {  // 将元素逆序
+          ch = ch + arr[i].charAt(arr[i].length - j - 1)  // abc  cba
+        }
+        newArr.push(ch)
+      }
+      return newArr
+    }
+    changedArr = strReverse(arr)
+    console.log(changedArr);
+    let Arr = changedArr.sort();
+    console.log(Arr);
+  </script>
+</body>
+
+</html>

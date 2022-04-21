@@ -72,7 +72,7 @@ const router = new VueRouter({
   routes,
   // 改变路径的方式
   mode: 'history',
-  // 配置一个link的点击态样式
+  // 对处于活跃的路由统一进行控制
   linkActiveClass:'active' 
 
   
@@ -81,8 +81,7 @@ const router = new VueRouter({
 router.beforeEach((to,from,next) =>{
   document.title = to.matched[0].meta.title
   // console.log(to);
-  next();
-  
+  next(); 
   // 从from到to
 })
 

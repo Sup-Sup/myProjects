@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>变量的初始化</title>
+</head>
+
+<body>
+  <script>
+    // // 声明变量
+    // var age;
+    // // 赋值
+    // age = 22;
+    // console.log(age);
+    // // 变量初始化
+    // var myschool = 'jiangxi normal school';
+    // console.log(myschool);
+
+    // function add() {
+    //   var sum = 1 + 2;
+    //   console.log(sum);
+    // }
+    // console.log(sum);
+
+    // if(!(3<=1)) {
+    //   console.log('--------');
+    // } else {
+    //   console.log('+++');
+    // }
+
+    for (var i = 0; i < 10; i++) {
+      i++;
+    }
+    console.log(i)
+
+    var a = 20;
+
+    function foo() {
+
+      console.log(a);
+
+      // var a = 10; 有这个和没有这个的差别
+      var a = 10;
+
+
+      console.log(a);
+
+    }
+
+    foo();
+    console.log(typeof 123);
+    console.log(typeof 123 === 'number')
+    console.log((2 == true) + 1)
+    console.log(2 == true)  // false
+    var a = 1; var b = a * 0;
+    var a;
+    if (b == b) {
+      console.log(b * 2 + '2' - 0 + 4);
+    } else {
+      console.log(!b * 2 + '2' - 0 + 4);
+    }
+  </script>
+
+</body>
+
+</html>

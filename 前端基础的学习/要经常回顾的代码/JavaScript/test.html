@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var obj = { name: '王大锤', skill: '”逗比”', logo: '”日和漫画”' };
+    // console.log(obj.length);
+    // for (var i = 0; i < obj.length; i++) {
+    //   console.log(obj[i]);
+    // }
+
+
+    // var y = 1;
+
+    // var x = y = typeof x;
+
+    // console.log(x);
+
+
+    /* 
+    变量用栈来存储，值用堆来处理；  引用指向  ； 执行顺序
+     */
+    // var obj1 = { n: 1 };
+    // var obj2 = { n: 2 };
+    // var a = obj1;
+    // var b = a;
+    // a.x = a = obj2;
+    // console.log(a.x); //undefined
+    // console.log(a);
+    // console.log(b.x); //{n:2}
+    // console.log(b);
+    // console.log(obj1); //{n:1, x:{n:2}}
+    // console.log(obj2); //{n:2}
+
+    // function fn(a) {
+    //   console.log(a);
+    //   var a = 2;
+    //   function a() { };
+    //   console.log(a);
+    // }
+    // fn(2);
+
+    // var name = '‘global’';
+    // var obj = {
+    //   name: '‘obj’',
+    //   dose: function () {
+    //     this.name = '‘dose’';
+    //     console.log(this);
+    //     return function () {
+    //       console.log(this);
+    //       return this.name;
+    //     }
+    //   }
+    // }
+    // console.log(obj.dose().call(this));
+
+
+    // var animals = [
+    //   { species: 'Lion', name: 'King' },
+    //   { species: 'Whale', name: 'Fail' }
+    // ];
+
+    // for (var i = 0; i < animals.length; i++) {
+    //   (function (i) {
+    //     this.print = function () {
+    //       console.log('#' + i + ' ' + this.species
+    //         + ': ' + this.name);
+    //     }
+    //     this.print();
+    //   }).call(animals[i], i);
+    // }
+    // function fun1(x) {
+    //   if (x > 2) {
+    //     return (fun1(x - 1) + fun1(x - 2));
+    //   } else {
+    //     return 1;
+    //   }
+    // }
+    // console.log(fun1(10))
+
+    // function fun1() {
+    //   var sum = 1;
+    //   return function () {
+    //     sum++;
+    //     return sum;
+    //   }
+    // }
+    // var fun2 = fun1();
+    // console.log(fun2());
+    // console.log(fun2());
+
+    //暂时还不理解 
+    // var a;
+    // var a = [1, 2, 3];
+    // function a(a) {
+    //   a[1] = 5;
+    // }
+    // a(a);
+    // console.log(a);
+
+
+    // var obj = { 1: 1 };
+
+    // var arr = [1, 1];
+
+    // console.log(obj + arr);
+
+    // forEach = function (arr, fn) {
+    //   for (var i = 0; i < arr.length; i++) {
+    //     var c = arr[i];
+    //     if (fn(c, i, c) == false) {
+    //       console.log('------');
+    //     }
+    //   }
+    // };
+    // function box1(index, num) {
+    //   console.log(index, num);
+    // } 
+    // var arr = [10, 9, 8, 7, 6, 5, 4];
+    // forEach(arr, box1)
+
+    function Foo() {
+      this.name = '“test1”';
+      function bar() {
+        console.log(this);
+        this.name = '“test2”'
+      };
+      bar();
+    }
+
+    var foo = new Foo();
+    console.log(foo.name);
+    console.log(Foo.length);
+  </script>
+</body>
+
+</html>

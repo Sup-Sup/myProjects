@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>按钮</button>
+  <div>1111111111</div>
+  <script>
+    let btn = document.querySelector('button');
+    let div = document.querySelector('div');
+    btn.addEventListener('click', function () {
+      // console.log(location.href);
+      location.href = 'https://www.baidu.com'
+    })
+    var timer = 5;
+    setInterval(function () {
+      if (timer == 0) {
+        location.href = 'https://www.baidu.com'
+      }
+      else {
+        div.innerHTML = '还剩' + timer + '秒，你将跳转至百度首页';
+        timer--
+      }
+    }, 1000)
+  </script>
+</body>
+
+</html>

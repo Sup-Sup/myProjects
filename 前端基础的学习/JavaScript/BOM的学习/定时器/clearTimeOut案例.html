@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="open">开启定时器</button>
+  <button id="close">关闭定时器</button>
+  <script>
+    var open = document.querySelector('#open')
+    var close = document.querySelector('#close')
+    var timer = null;
+    open.addEventListener('click', function() {
+       timer = setInterval(function() {
+        console.log('hello, baby');
+      }, 1000)
+    })
+    close.addEventListener('click', function() {
+      clearInterval(timer)
+    })
+  </script>
+</body>
+</html>

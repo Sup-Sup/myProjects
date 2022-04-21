@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <card @click.native="clickFn">按钮</card>
+    </div>
+<script src='../../vue.js'></script>
+<script>
+    Vue.component('card',{
+        template:'<p>这是card组件<button>按钮</button></p>'
+    })
+
+    new Vue({
+        el:'#app',
+        data:{
+            state:false
+        },
+        methods:{
+            clickFn (e) {
+              console.log(e)  //打印出MouseEvent对象
+              if (e.target.nodeName === 'IMG') {  // 可以对点击的target标签进行判断
+                this.dialogImageUrl = file.target.src
+                this.dialogVisible = true
+              }
+          }
+        }
+    })
+
+</script>
+</body>
+</html>

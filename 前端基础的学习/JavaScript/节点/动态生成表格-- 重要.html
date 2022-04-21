@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  table,
+  th,
+  tr,
+  td {
+    border: solid 1px black;
+    border-collapse: collapse;
+  }
+  tr {
+    height: 12px;
+  }
+  td {
+    width: 25%;
+    text-align: center;
+  }
+</style>
+<body>
+  <table>
+    <thead>
+      <th>姓名</th>
+      <th>科目</th>
+      <th>成绩</th>
+      <th>操作</th>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+  <script>
+    var people = [{
+      name:'lily',
+      subject: 'math',
+      grade: 96,
+    },{
+      name:'lilei',
+      subject: 'english',
+      grade: 45,
+    },{
+      name:'alex',
+      subject: 'chinese',
+      grade: 77,
+    },{
+      name:'pink',
+      subject: 'computer',
+      grade: 99 ,
+    }]
+    var tbody = document.querySelector('tbody');
+    // 1.创建行
+    for( var i = 0; i <=people.length - 1 ; i++) {  // 外边的管行
+      var tr = document.createElement('tr');
+      tbody.appendChild(tr);
+      // 2.创建列
+      for ( k in people[i]) {  // 里边的管列
+        var td = document.createElement('td');   // td 取决于里边属性的个数
+        tr.appendChild(td);
+        td.innerHTML = people[i][k];
+      }
+      // 3.创建 操作列的单元格
+      var lastTd = document.createElement('td');
+      lastTd.innerHTML = ' <a href="javascript:;">删除</a>';
+      tr.appendChild(lastTd);
+    }
+    // 4.给删除做点击事件
+    var del = document.querySelectorAll('a');
+    for( var i =0 ; i <= del.length -1; i++) {
+      del[i].onclick = function () {
+        tbody.removeChild(this.parentNode.parentNode)
+      }
+    } 
+    
+  </script>
+</body>
+</html>

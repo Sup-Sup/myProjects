@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    Vue中发送网络请求的方式很多，那么，如何在开发中进行选择呢？
+      传统的Ajax是基于 XMLHttpRequest（XHR） -- 非常好解释，配置和调用等非常混乱，编码看起来非常不舒服，真实开发中很少直接使用，而是使用JQuery-Ajax
+      jQuery里的Ajax -- 相较于传统的Ajax非常好用，三大框架里，很少使用它，一是Vue的项目里面不再需要JQuery，二是JQuery代码量1w+行，为了实现这个功能，而引用它，不太好
+      Vue-resource -- Vue 1.x时，宣布推出的东西，后来不再更新与维护
+      axios -- 作者推荐，用起来方便
+      JSONP -- 主要是为了解决跨域访问的问题，JSONP的原理稍微了解一下
+
+      axios的功能特点： 
+        在浏览器中发送XMLHttpRequests请求 -- 在node.js 中发送http请求 -- 支持 Promise API
+        拦截请求和响应 -- 转换请求和响应数据 -- 等等
+
+        httpbin.org/ 可以用这个网站来做测试 -- http://123.207.32.32:8000/home/multidata  -- 可用来做测试 
+
+
+      axios拦截器：
+        四种：请求成功，请求失败  响应成功，响应失败
+    1. 对象的解构：    
+     const obj = {
+       name: 'kobe',
+       age: 30
+     },
+     const {name, age} = obj;
+
+    2. 数组的解构
+     const names = ['james','curry','kobe'];
+     const [name1,name2,name3] = names;
+
+     第三方的框架尽量不要太过于依赖，就是不要每个组件都对这个框架做依赖，一旦这个框架出现大量的bug，或者不在维护了，那就很难改
+
+     import axios from "axios"
+
+export function request(config){
+  
+    // 创建axios 的实例
+    const instance = axios.create({
+      baseURL: 'http://123.207.32.32:8000',
+      timeout: 5000
+    })
+
+    // 发送网络请求
+   return instance(config)
+  
+}
+// export function request(config){
+//   return new Promise((resolve,reject) => {
+//     // 创建axios 的实例
+//     const instance = axios.create({
+//       baseURL: 'http://123.207.32.32:8000',
+//       timeout: 5000
+//     })
+
+//     // 发送网络请求
+//     instance(config).then(res => {
+//       resolve(res)
+//     }).catch(err => {
+//       reject(err)
+//     })
+//   })
+// }
+
+// export function request(config,success,failure){
+//   // 1.创建axios 的实例
+//   const instance = axios.create({
+//     baseURL: 'http://123.207.32.32:8000',
+//     timeout: 5000
+//   })
+
+//   // 发送真正的网络请求
+//   instance(config)
+//   .then(res => {
+//     // console.log(res);
+//     success(res);
+//   })
+//   .catch(err => {
+//     // console.log(err);
+//     failure(err)
+//   })
+// }
+
+// export function request(config){
+//   const instance = axios.create({
+//     baseURL: 'http://123.207.32.32:8000',
+//     timeout: 5000
+//   })
+
+//   instance(config.baseConfig)
+//   .then(res => {
+//     config.success(res)
+//   })
+//   .catch(err => {
+//     config.failure(err)
+//   })
+// }
+
+
+
+
+
+
+import Vue from 'vue'
+import App from './App'
+
+import axios from 'axios'
+
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
+
+
+// 1.axios 的基本使用
+// axios({
+//   url: "http://123.207.32.32:8000/home/multidata",
+//   // method: 'post'
+// }).then(res => {
+//   console.log(res);
+// })
+
+// axios({
+//   url: "http://123.207.32.32:8000/home/data",
+//   // 专门对get 请求做的参数拼接
+//   params: {
+//     type: 'pop',
+//     page: 1
+//   }
+// }).then(res => {
+//   console.log(res);
+// })
+
+// 2.axios 发送并请求
+
+// axios.all([
+//   axios({
+//     url: "http://123.207.32.32:8000/home/multidata"
+//   }),
+//   axios({
+//     url: "http://123.207.32.32:8000/home/data",
+//     params: {
+//       type: 'sell',
+//       page: 5
+//     }
+//   })
+// ]).then(res => {
+//   console.log(res);
+// })
+// 3. 使用全局的axios 和对应的配置进行网络请求 
+// axios.defaults.baseURL = 'http://123.207.32.32:8000'
+// axios.defaults.timeout = 5000
+
+// axios.all([
+//   axios({
+//     url: "/home/multidata"
+//   }),
+//   axios({
+//     url: "/home/data",
+//     params: {
+//       // 和method -- get 方法相对应，将params 以问号的形式拼接上去
+//       //  如果是post -- 那么就要用 data形式了
+//       type: 'sell',
+//       page: 5
+//     }
+//   })
+// ]).then(axios.spread((res1,res2) => {
+//   console.log(res1);
+//   console.log(res2);
+// }))
+
+// // 4. 创建一个对应的 axios 的实例
+// const instance1 = axios.create({
+//   baseURL: 'http://123.207.32.32:8000',
+//   timeout: 5000
+// })
+
+// instance1({
+//   url: '/home/multidata'
+// }).then(res => {
+//   console.log(res);
+// })
+
+// instance1({
+//   url: '/home/data',
+//   params: {
+//     type: 'pop',
+//     page:1
+//   }
+// }).then(res => {
+//   console.log(res);
+// })
+
+// 5.封装request模块
+
+import {request} from './network/request';
+
+// request({
+//   url: '/home/data'
+// },res => {
+//   console.log(res);
+// },err => {
+//   console.log(err);
+// })
+
+// request({
+//   baseConfig: {
+
+//   },
+//   success: function(res){
+
+//   },
+//   failure: function(err){
+
+//   }
+// })
+
+request({
+  url: '/home/multidata'
+}).then(res => {
+  console.log(res);
+}).catch(err => {
+  console.log(err);
+})
+
+
+
+   -->
+   <script>
+    
+   </script>
+</body>
+</html>

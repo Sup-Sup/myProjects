@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+  }
+
+  .hour,
+  .minute,
+  .second {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    margin: auto 2px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    background-color: black;
+  }
+</style>
+
+<body>
+  <div>
+    <span class="hour">1</span>
+    <span class="minute">2</span>
+    <span class="second">3</span>
+  </div>
+  <script>
+    // 倒计时效果
+    var hour = document.querySelector('.hour')
+    var minute = document.querySelector('.minute')
+    var second = document.querySelector('.second')
+    var inputTime = +new Date('2022-3-26 21:23:00');  //  返回的是输入时间的总的毫秒数
+    setInterval(countDown, 1000);
+
+    // 倒计时
+    function countDown(time) {
+      var nowTime = +new Date();   // 返回的是当前时间总的毫秒数
+      var times = (inputTime - nowTime) / 1000;
+      var h = parseInt(times / 60 / 60 % 24);
+      h = h < 10 ? '0' + h : h;
+      hour.innerHTML = h;
+      var m = parseInt(times / 60 % 60);
+      m = m < 10 ? '0' + m : m;
+      minute.innerHTML = m;
+      var s = parseInt(times % 60)
+      s = s < 10 ? '0' + s : s;
+      second.innerHTML = s;
+    }
+
+  </script>
+</body>
+
+</html>
